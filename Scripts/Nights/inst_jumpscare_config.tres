@@ -1,0 +1,88 @@
+[gd_resource type="Resource" script_class="JumpscareConfig" load_steps=14 format=3 uid="uid://ckmpr55ti84ip"]
+
+[ext_resource type="Script" uid="uid://dwoqcn6w0recw" path="res://Scripts/Nights/jumpscare_config.gd" id="1_wgjot"]
+[ext_resource type="Texture2D" uid="uid://cphuyct3kqq2n" path="res://Graphics/Jumpscares/inst_jumpscare_updated.png" id="2_wgjot"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6see6"]
+atlas = ExtResource("2_wgjot")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_550wl"]
+atlas = ExtResource("2_wgjot")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if6xn"]
+atlas = ExtResource("2_wgjot")
+region = Rect2(0, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7pjg"]
+atlas = ExtResource("2_wgjot")
+region = Rect2(0, 3240, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8doa"]
+atlas = ExtResource("2_wgjot")
+region = Rect2(0, 4320, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qukwt"]
+atlas = ExtResource("2_wgjot")
+region = Rect2(0, 5400, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2bmd"]
+atlas = ExtResource("2_wgjot")
+region = Rect2(0, 6480, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upg22"]
+atlas = ExtResource("2_wgjot")
+region = Rect2(0, 7560, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxmt4"]
+atlas = ExtResource("2_wgjot")
+region = Rect2(0, 8640, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xueb"]
+atlas = ExtResource("2_wgjot")
+region = Rect2(0, 9720, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cpwf0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6see6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_550wl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_if6xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7pjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8doa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qukwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2bmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upg22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxmt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xueb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[resource]
+script = ExtResource("1_wgjot")
+character_name = "INSTAnomaly"
+use_animated_sprite = true
+sprite_frames = SubResource("SpriteFrames_cpwf0")

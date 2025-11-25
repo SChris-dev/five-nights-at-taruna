@@ -1,0 +1,1231 @@
+[gd_scene load_steps=111 format=3 uid="uid://cthhku8fsrdeq"]
+
+[ext_resource type="Script" uid="uid://babox67oh2xx3" path="res://Scripts/Nights/Office/office_manager.gd" id="1_pp75g"]
+[ext_resource type="Texture2D" uid="uid://dsvw0bk5c36ue" path="res://Graphics/Office/office_complete.png" id="2_risgj"]
+[ext_resource type="Script" uid="uid://bencescb72ut2" path="res://Scripts/Nights/Office/office_scrolling.gd" id="3_ejiio"]
+[ext_resource type="Script" uid="uid://bwiiu33in6rx1" path="res://Scripts/Nights/Office/door_graphics_manager.gd" id="4_162og"]
+[ext_resource type="Texture2D" uid="uid://2hwki8rcehtm" path="res://icon.svg" id="4_lu3yo"]
+[ext_resource type="Texture2D" uid="uid://c0mk1t02x5xvj" path="res://Graphics/Office/doors/actual_left_door.png" id="5_5asa8"]
+[ext_resource type="Script" uid="uid://cyt78opurb0y6" path="res://Scripts/Nights/tablet_manager.gd" id="5_h71ec"]
+[ext_resource type="Script" uid="uid://n6xetcvp8tiv" path="res://Scripts/Nights/Office/button_scroll.gd" id="5_hvcnl"]
+[ext_resource type="Texture2D" uid="uid://bwp12gkddlnns" path="res://Graphics/Tablet/tablet_anim.png" id="6_1oog2"]
+[ext_resource type="Texture2D" uid="uid://bmlpenbf6l1x4" path="res://Graphics/Office/buttons/on (1).png" id="6_risgj"]
+[ext_resource type="Texture2D" uid="uid://beakfkdy762sj" path="res://Graphics/Office/anomalies/tkj_on_door_updated.png" id="6_v5qfs"]
+[ext_resource type="Texture2D" uid="uid://c55qsq5xr1h1d" path="res://Graphics/Office/doors/actual_right_door.png" id="6_vbnlb"]
+[ext_resource type="Texture2D" uid="uid://dhhppwsr2bab" path="res://Graphics/Office/both_doors (1).png" id="7_5asa8"]
+[ext_resource type="Script" uid="uid://cv5x223c5rwxf" path="res://Scripts/Nights/Office/door_indicator_graphics.gd" id="7_nid72"]
+[ext_resource type="Texture2D" uid="uid://d5x3qvo8xyjs" path="res://Graphics/Office/buttons/light_off.png" id="7_xftyl"]
+[ext_resource type="Texture2D" uid="uid://5jeq1vesidyn" path="res://Graphics/Office/anomalies/inst_on_door.png" id="8_e2gb6"]
+[ext_resource type="Texture2D" uid="uid://670ng4itadoi" path="res://Graphics/HUD/New Piskel-1.png.png" id="8_hvcnl"]
+[ext_resource type="Texture2D" uid="uid://cna0lb1bmjwf6" path="res://Graphics/Office/buttons/on (2).png" id="8_risgj"]
+[ext_resource type="Script" uid="uid://yp63h48lcuew" path="res://Scripts/Nights/Camera/Setups/tjp_setup.gd" id="11_2lb4s"]
+[ext_resource type="Texture2D" uid="uid://uwd10sduycuh" path="res://Graphics/CamRooms/Cam_1/New Piskel (15).png" id="14_risgj"]
+[ext_resource type="Texture2D" uid="uid://8qq5rkryuskp" path="res://Graphics/HUD/cam_buttons.png" id="14_va0vt"]
+[ext_resource type="Shader" uid="uid://bmhw6f2jcbxgp" path="res://Shaders/crtwave_shader.gdshader" id="15_051wc"]
+[ext_resource type="Texture2D" uid="uid://bbo5n8erp2chg" path="res://Graphics/CamRooms/Cam_2/New Piskel (18).png" id="15_risgj"]
+[ext_resource type="Texture2D" uid="uid://by3axrhf1aywr" path="res://Graphics/HUD/cam_buttons_new.png" id="16_2lb4s"]
+[ext_resource type="Texture2D" uid="uid://c0d0jmshu18hk" path="res://Graphics/Static/static_anim.png" id="16_mcq0v"]
+[ext_resource type="Script" uid="uid://djxif588eqlw8" path="res://Scripts/Nights/Camera/camera_fix_button.gd" id="17_2123g"]
+[ext_resource type="Texture2D" uid="uid://ccxxchvq14cit" path="res://Graphics/CamRooms/Cam_4/New Piskel (17).png" id="17_risgj"]
+[ext_resource type="Texture2D" uid="uid://cjbnhvbjx88tv" path="res://Graphics/CamRooms/Cam_6/rpl_room.png" id="17_vdbya"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://siq8sv1mpgct" path="res://AnimationTree/animtree_camera.tres" id="18_itk3u"]
+[ext_resource type="Texture2D" uid="uid://dlu6by8ojqmym" path="res://Graphics/HUD/minimap-update-1.png.png" id="19_jyxs1"]
+[ext_resource type="Script" uid="uid://bh18ibgjqneeu" path="res://Scripts/Nights/AI/ai_manager.gd" id="19_nqdqv"]
+[ext_resource type="Shader" uid="uid://b7sl4psypgsnm" path="res://Shaders/equirectangular_perspective.gdshader" id="20_obh0f"]
+[ext_resource type="Script" uid="uid://d0ho0pssgl50h" path="res://Scripts/Nights/power_manager.gd" id="22_power"]
+[ext_resource type="Texture2D" uid="uid://bd2ti8wyd3t1q" path="res://Graphics/CamRooms/Cam_9/New Piskel (16).png" id="23_risgj"]
+[ext_resource type="Script" uid="uid://bejmpm5k0833c" path="res://Scripts/Nights/night_timer.gd" id="23_timer"]
+[ext_resource type="Texture2D" uid="uid://ga40rixjwyji" path="res://Graphics/CamRooms/Cam_3/outer_audiotorium_updated.png" id="23_v5qfs"]
+[ext_resource type="Script" uid="uid://b7iq35qm6kvst" path="res://Scripts/Nights/hud_labels.gd" id="24_hud"]
+[ext_resource type="Texture2D" uid="uid://dqt2f1oagcwcr" path="res://Graphics/CamRooms/Cam_10/New Piskel (19).png" id="24_risgj"]
+[ext_resource type="Script" uid="uid://ccvbhcty0rnnm" path="res://Scripts/Nights/Office/door_and_light_manager.gd" id="25_dlm"]
+[ext_resource type="Texture2D" uid="uid://cyaaeqxgvhfs5" path="res://Graphics/CamRooms/Cam_13/audio.png" id="25_s2li7"]
+[ext_resource type="Texture2D" uid="uid://cajsaxush3fay" path="res://Graphics/CamRooms/Cam_5/stairs_updated.png" id="25_v5qfs"]
+[ext_resource type="Script" uid="uid://b6vvc1v2jcovu" path="res://Scripts/Nights/AI/Characters/inst_anomaly.gd" id="26_1ojnv"]
+[ext_resource type="Script" uid="uid://dk7buem3wm2yg" path="res://Scripts/Nights/AI/Characters/tkj_roamer.gd" id="27_e71s1"]
+[ext_resource type="Texture2D" uid="uid://dfdxqkvjyce4x" path="res://Graphics/CamRooms/Cam_7/tkj_room_updated.png" id="28_v5qfs"]
+[ext_resource type="Script" uid="uid://mpyvv8p1urb3" path="res://Scripts/Nights/AI/Characters/tkr_sprinter.gd" id="29_6h7ju"]
+[ext_resource type="Texture2D" uid="uid://drk1w4lfa1lc5" path="res://Graphics/CamRooms/Cam_8/tkr_room_updated.png" id="29_v5qfs"]
+[ext_resource type="Script" uid="uid://qawc20713a1w" path="res://Scripts/Nights/AI/Characters/big_robot.gd" id="30_vdbya"]
+[ext_resource type="Script" uid="uid://dlq63ga74erjt" path="res://Scripts/Nights/AI/Characters/rpl_disruptor.gd" id="31_khy4v"]
+[ext_resource type="Texture2D" uid="uid://jvi6cono87ye" path="res://Graphics/CamRooms/Cam_11/north_hallway_updated.png" id="32_5ku8n"]
+[ext_resource type="Texture2D" uid="uid://bo2r5xtkjmpa0" path="res://Graphics/CamRooms/Cam_12/lower_hallway_updated.png" id="32_del28"]
+[ext_resource type="Script" uid="uid://cb0s6h5rugs1k" path="res://Scripts/Nights/AI/Characters/tkj_drainer.gd" id="32_h28ug"]
+[ext_resource type="Script" uid="uid://3dt1qf4cpvex" path="res://Scripts/Nights/jumpscare_manager.gd" id="40_0txpj"]
+[ext_resource type="Script" uid="uid://dwoqcn6w0recw" path="res://Scripts/Nights/jumpscare_config.gd" id="41_fyeqi"]
+[ext_resource type="Resource" uid="uid://ckmpr55ti84ip" path="res://Scripts/Nights/inst_jumpscare_config.tres" id="42_fyeqi"]
+[ext_resource type="Resource" uid="uid://e7sxiynfag60" path="res://Scripts/Nights/robot_jumpscare_config.tres" id="43_del28"]
+[ext_resource type="Resource" uid="uid://di338d6fnsvry" path="res://Scripts/Nights/tkr_jumpscare_config.tres" id="44_pl3ap"]
+[ext_resource type="Script" uid="uid://dwj3hqognxces" path="res://Scripts/Nights/power_out_sequence.gd" id="53_8y2y3"]
+[ext_resource type="Script" uid="uid://5d1dhgkd3ium" path="res://tmp_rovodev_test_jumpscare.gd" id="54_uho0t"]
+[ext_resource type="FontFile" uid="uid://bfrhphr3nf0vm" path="res://Graphics/Fonts/DeterminationMonoWebRegular-Z5oq.ttf" id="55_x7bti"]
+[ext_resource type="Script" uid="uid://dmm0sljt16bu2" path="res://tmp_rovodev_test_powerout.gd" id="59_jdwom"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0qos"]
+size = Vector2(256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5glu"]
+atlas = ExtResource("6_1oog2")
+region = Rect2(3520, 653, 880, 653)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkimb"]
+atlas = ExtResource("6_1oog2")
+region = Rect2(2640, 653, 880, 653)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esmof"]
+atlas = ExtResource("6_1oog2")
+region = Rect2(1760, 653, 880, 653)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyqqd"]
+atlas = ExtResource("6_1oog2")
+region = Rect2(880, 653, 880, 653)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tv3v2"]
+atlas = ExtResource("6_1oog2")
+region = Rect2(0, 653, 880, 653)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_011q1"]
+atlas = ExtResource("6_1oog2")
+region = Rect2(3520, 0, 880, 653)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he7im"]
+atlas = ExtResource("6_1oog2")
+region = Rect2(2640, 0, 880, 653)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt4va"]
+atlas = ExtResource("6_1oog2")
+region = Rect2(1760, 0, 880, 653)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rytrd"]
+atlas = ExtResource("6_1oog2")
+region = Rect2(880, 0, 880, 653)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnds1"]
+atlas = ExtResource("6_1oog2")
+region = Rect2(0, 0, 880, 653)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5t1j5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5glu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkimb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esmof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyqqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tv3v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_011q1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he7im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt4va")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rytrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnds1")
+}],
+"loop": false,
+"name": &"lift",
+"speed": 70.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1mul"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(0, 0, 48, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrm77"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us2yt"]
+atlas = ExtResource("14_va0vt")
+region = Rect2(0, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe3yf"]
+atlas = ExtResource("14_va0vt")
+region = Rect2(48, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcwij"]
+atlas = ExtResource("14_va0vt")
+region = Rect2(0, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60mtv"]
+atlas = ExtResource("14_va0vt")
+region = Rect2(48, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deh3i"]
+atlas = ExtResource("14_va0vt")
+region = Rect2(0, 96, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbcdr"]
+atlas = ExtResource("14_va0vt")
+region = Rect2(48, 96, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ojnv"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(0, 128, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e71s1"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(48, 128, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tf7aw"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(0, 160, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ts1s"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(48, 160, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lb4s"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(0, 192, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkp18"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(48, 192, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15ttt"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(0, 224, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5e34"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(48, 224, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2123g"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(0, 256, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h7ju"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(48, 256, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdbya"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(0, 288, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khy4v"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(48, 288, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h28ug"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(0, 320, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egk1u"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(48, 320, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2li7"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(0, 352, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xftyl"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(48, 352, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_risgj"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(0, 384, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6tga"]
+atlas = ExtResource("16_2lb4s")
+region = Rect2(48, 384, 48, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pbexm"]
+shader = ExtResource("15_051wc")
+shader_parameter/roll_speed = 2.0
+shader_parameter/roll_size = 25.0
+shader_parameter/roll_variation = 0.62
+shader_parameter/distort_intensity = 0.01
+shader_parameter/noise_opacity = 0.15
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj4qn"]
+atlas = ExtResource("16_mcq0v")
+region = Rect2(0, 0, 1198, 890)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skfkt"]
+atlas = ExtResource("16_mcq0v")
+region = Rect2(1198, 0, 1198, 890)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80udy"]
+atlas = ExtResource("16_mcq0v")
+region = Rect2(0, 890, 1198, 890)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_moqym"]
+atlas = ExtResource("16_mcq0v")
+region = Rect2(1198, 890, 1198, 890)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ioo0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oj4qn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skfkt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80udy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_moqym")
+}],
+"loop": true,
+"name": &"default",
+"speed": 25.0
+}]
+
+[sub_resource type="Animation" id="Animation_yiym4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CamRooms/room_1:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 1280, 2880)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CamRooms/room_2:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(320, 0, 1280, 2880)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CamRooms/room_3:region_rect")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 1280, 1440)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CamRooms/room_4:region_rect")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(320, 0, 1280, 1440)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CamHUD/CamStatic:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.392157)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CamRooms/room_5:region_rect")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(128.44, 0, 798, 4744)]
+}
+
+[sub_resource type="Animation" id="Animation_33l2s"]
+resource_name = "cam_scroll"
+length = 16.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CamRooms/room_1:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3, 5, 11, 13),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 798, 2372), Rect2(0, 0, 798, 2372), Rect2(268, 0, 798, 2372), Rect2(268, 0, 798, 2372)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CamRooms/room_2:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 8, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(268, 0, 798, 2372), Rect2(268, 0, 798, 2372), Rect2(0, 0, 798, 2372), Rect2(0, 0, 798, 2372)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CamRooms/room_3:region_rect")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2, 4, 10, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 798, 4744), Rect2(0, 0, 798, 4744), Rect2(268, 0, 798, 4744), Rect2(268, 0, 798, 4744)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CamRooms/room_4:region_rect")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(6, 8, 14, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(268, 0, 798, 1186), Rect2(268, 0, 798, 1186), Rect2(0, 0, 798, 1186), Rect2(0, 0, 798, 1186)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CamRooms/room_5:region_rect")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2, 8, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(268, 0, 798, 4744), Rect2(268, 0, 798, 4744), Rect2(0, 0, 798, 4744), Rect2(0, 0, 798, 4744)]
+}
+
+[sub_resource type="Animation" id="Animation_kche4"]
+resource_name = "static_boot"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CamHUD/CamStatic:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.235294)]
+}
+
+[sub_resource type="Animation" id="Animation_06ke1"]
+resource_name = "static_idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CamHUD/CamStatic:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1, 1.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.235294), Color(1, 1, 1, 0.235294), Color(1, 1, 1, 0.235294), Color(1, 1, 1, 0.313726), Color(1, 1, 1, 0.235294)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gkfmd"]
+_data = {
+&"RESET": SubResource("Animation_yiym4"),
+&"cam_scroll": SubResource("Animation_33l2s"),
+&"static_boot": SubResource("Animation_kche4"),
+&"static_idle": SubResource("Animation_06ke1")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kco4d"]
+shader = ExtResource("20_obh0f")
+shader_parameter/fov = 0.32
+shader_parameter/stretch = Vector2(54, 27)
+
+[node name="Nights" type="Node2D"]
+
+[node name="OfficeElements" type="Node2D" parent="." node_paths=PackedStringArray("door_manager", "tablet_manager")]
+script = ExtResource("1_pp75g")
+door_manager = NodePath("Office/DoorAndLight")
+tablet_manager = NodePath("../TabletElements")
+
+[node name="Office" type="Sprite2D" parent="OfficeElements" node_paths=PackedStringArray("door_manager")]
+texture = ExtResource("2_risgj")
+centered = false
+offset = Vector2(-480, 0)
+script = ExtResource("3_ejiio")
+door_manager = NodePath("DoorAndLight")
+
+[node name="DoorIndicatorGraphics" type="Node2D" parent="OfficeElements/Office"]
+script = ExtResource("7_nid72")
+inst_door_texture = ExtResource("8_e2gb6")
+tkj_door_texture = ExtResource("6_v5qfs")
+use_fade_animation = false
+
+[node name="LeftIndicator" type="Sprite2D" parent="OfficeElements/Office/DoorIndicatorGraphics"]
+centered = false
+offset = Vector2(-480, 0)
+
+[node name="RightIndicator" type="Sprite2D" parent="OfficeElements/Office/DoorIndicatorGraphics"]
+centered = false
+offset = Vector2(-480, 0)
+
+[node name="DoorSprites" type="Node2D" parent="OfficeElements/Office"]
+script = ExtResource("4_162og")
+left_door_texture = ExtResource("5_5asa8")
+right_door_texture = ExtResource("6_vbnlb")
+
+[node name="LeftDoor" type="Sprite2D" parent="OfficeElements/Office/DoorSprites"]
+centered = false
+offset = Vector2(-480, 0)
+
+[node name="RightDoor" type="Sprite2D" parent="OfficeElements/Office/DoorSprites"]
+centered = false
+offset = Vector2(-480, 0)
+
+[node name="Overlay" type="Sprite2D" parent="OfficeElements/Office"]
+texture = ExtResource("7_5asa8")
+centered = false
+offset = Vector2(-480, 0)
+
+[node name="Buttons" type="Node2D" parent="OfficeElements/Office"]
+
+[node name="ButtonExample" type="Sprite2D" parent="OfficeElements/Office/Buttons"]
+visible = false
+position = Vector2(250, 540)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_lu3yo")
+script = ExtResource("5_hvcnl")
+x_speed = 210
+left_clamp = -400
+
+[node name="Area2D" type="Area2D" parent="OfficeElements/Office/Buttons/ButtonExample"]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OfficeElements/Office/Buttons/ButtonExample/Area2D"]
+z_index = 50
+shape = SubResource("RectangleShape2D_a0qos")
+
+[node name="ButtonExample2" type="Sprite2D" parent="OfficeElements/Office/Buttons"]
+visible = false
+position = Vector2(800, 540)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_lu3yo")
+script = ExtResource("5_hvcnl")
+x_speed = -350
+left_clamp = -800
+
+[node name="Area2D" type="Area2D" parent="OfficeElements/Office/Buttons/ButtonExample2"]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OfficeElements/Office/Buttons/ButtonExample2/Area2D"]
+z_index = 50
+shape = SubResource("RectangleShape2D_a0qos")
+
+[node name="ButtonExample3" type="Sprite2D" parent="OfficeElements/Office/Buttons"]
+visible = false
+position = Vector2(1675, 540)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_lu3yo")
+script = ExtResource("5_hvcnl")
+x_speed = -210
+right_clamp = 400
+
+[node name="Area2D" type="Area2D" parent="OfficeElements/Office/Buttons/ButtonExample3"]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OfficeElements/Office/Buttons/ButtonExample3/Area2D"]
+z_index = 50
+shape = SubResource("RectangleShape2D_a0qos")
+
+[node name="LeftDoorButton" type="Sprite2D" parent="OfficeElements/Office/Buttons"]
+position = Vector2(-100, 550)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("6_risgj")
+script = ExtResource("5_hvcnl")
+x_speed = 210
+left_clamp = -400
+
+[node name="Area2D" type="Area2D" parent="OfficeElements/Office/Buttons/LeftDoorButton"]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OfficeElements/Office/Buttons/LeftDoorButton/Area2D"]
+z_index = 50
+position = Vector2(1.6000001, 3.5999994)
+scale = Vector2(0.15, 0.45)
+shape = SubResource("RectangleShape2D_a0qos")
+
+[node name="LeftLightButton" type="Sprite2D" parent="OfficeElements/Office/Buttons"]
+position = Vector2(-250, 575)
+texture = ExtResource("7_xftyl")
+script = ExtResource("5_hvcnl")
+x_speed = 210
+left_clamp = -400
+
+[node name="Area2D" type="Area2D" parent="OfficeElements/Office/Buttons/LeftLightButton"]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OfficeElements/Office/Buttons/LeftLightButton/Area2D"]
+z_index = 50
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_a0qos")
+
+[node name="RightLightButton" type="Sprite2D" parent="OfficeElements/Office/Buttons"]
+position = Vector2(2175, 575)
+texture = ExtResource("7_xftyl")
+script = ExtResource("5_hvcnl")
+x_speed = -210
+right_clamp = 400
+
+[node name="Area2D" type="Area2D" parent="OfficeElements/Office/Buttons/RightLightButton"]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OfficeElements/Office/Buttons/RightLightButton/Area2D"]
+z_index = 50
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_a0qos")
+
+[node name="RightDoorButton" type="Sprite2D" parent="OfficeElements/Office/Buttons"]
+position = Vector2(2018, 550)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("8_risgj")
+script = ExtResource("5_hvcnl")
+x_speed = -210
+right_clamp = 400
+
+[node name="Area2D" type="Area2D" parent="OfficeElements/Office/Buttons/RightDoorButton"]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OfficeElements/Office/Buttons/RightDoorButton/Area2D"]
+z_index = 50
+scale = Vector2(0.15, 0.45)
+shape = SubResource("RectangleShape2D_a0qos")
+
+[node name="DoorAndLight" type="Node2D" parent="OfficeElements/Office" node_paths=PackedStringArray("power_manager", "hud", "ai_manager", "door_graphics", "door_indicator_graphics")]
+script = ExtResource("25_dlm")
+power_manager = NodePath("../../../PowerManager")
+hud = NodePath("../../../HUD")
+ai_manager = NodePath("../../../CharacterAI")
+door_graphics = NodePath("../DoorSprites")
+door_indicator_graphics = NodePath("../DoorIndicatorGraphics")
+
+[node name="LeftDoorIndicators" type="Node2D" parent="OfficeElements/Office/DoorAndLight"]
+position = Vector2(200, 400)
+
+[node name="INSTIndicator" type="ColorRect" parent="OfficeElements/Office/DoorAndLight/LeftDoorIndicators"]
+visible = false
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+offset_bottom = 100.0
+color = Color(1, 0.5, 0, 1)
+
+[node name="RightDoorIndicators" type="Node2D" parent="OfficeElements/Office/DoorAndLight"]
+position = Vector2(1720, 400)
+
+[node name="TKJIndicator" type="ColorRect" parent="OfficeElements/Office/DoorAndLight/RightDoorIndicators"]
+visible = false
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+offset_bottom = 100.0
+color = Color(1, 1, 0, 1)
+
+[node name="TabletElements" type="Node2D" parent="." node_paths=PackedStringArray("camera", "office")]
+z_index = 15
+position = Vector2(960, 540)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("5_h71ec")
+camera = NodePath("../CameraElements")
+office = NodePath("../OfficeElements/Office")
+
+[node name="Tablet_Sprite" type="AnimatedSprite2D" parent="TabletElements"]
+visible = false
+position = Vector2(0, 34)
+sprite_frames = SubResource("SpriteFrames_5t1j5")
+animation = &"lift"
+
+[node name="Tablet_Button" type="TextureButton" parent="TabletElements"]
+modulate = Color(1, 1, 1, 0.2)
+z_index = 5
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = 290.0
+offset_right = 320.0
+offset_bottom = 361.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("8_hvcnl")
+
+[node name="CameraElements" type="Node2D" parent="." node_paths=PackedStringArray("ai_manager")]
+visible = false
+script = ExtResource("11_2lb4s")
+rooms = Array[Array]([[1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0], [0, 1, 0, 0, 0, 1], [0, 0, 1, 0, 0, 0], [0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]])
+ai_manager = NodePath("../CharacterAI")
+
+[node name="CamRooms" type="Node2D" parent="CameraElements"]
+z_index = 15
+
+[node name="room_1" type="Sprite2D" parent="CameraElements/CamRooms"]
+position = Vector2(361.5, 147.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("14_risgj")
+centered = false
+vframes = 4
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 2880)
+
+[node name="room_2" type="Sprite2D" parent="CameraElements/CamRooms"]
+visible = false
+position = Vector2(361.5, 147.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_risgj")
+centered = false
+vframes = 4
+region_enabled = true
+region_rect = Rect2(320, 0, 1280, 2880)
+
+[node name="room_3" type="Sprite2D" parent="CameraElements/CamRooms"]
+visible = false
+position = Vector2(361.5, 147.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("23_v5qfs")
+centered = false
+vframes = 8
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 1440)
+
+[node name="room_4" type="Sprite2D" parent="CameraElements/CamRooms"]
+visible = false
+position = Vector2(361.5, 147.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("17_risgj")
+centered = false
+vframes = 2
+region_enabled = true
+region_rect = Rect2(320, 0, 1280, 1440)
+
+[node name="room_5" type="Sprite2D" parent="CameraElements/CamRooms"]
+visible = false
+position = Vector2(361.5, 147.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("25_v5qfs")
+centered = false
+vframes = 8
+region_enabled = true
+region_rect = Rect2(128.44, 0, 798, 4744)
+
+[node name="room_6" type="Sprite2D" parent="CameraElements/CamRooms"]
+visible = false
+position = Vector2(361.5, 147.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("17_vdbya")
+centered = false
+vframes = 2
+region_enabled = true
+region_rect = Rect2(128.43991, 0, 798, 1186)
+
+[node name="RPLFixButton" type="Button" parent="CameraElements/CamRooms/room_6" node_paths=PackedStringArray("ai_manager")]
+offset_left = 500.0
+offset_top = 400.0
+offset_right = 601.0
+offset_bottom = 431.0
+text = "FIX CAMERA"
+script = ExtResource("17_2123g")
+ai_manager = NodePath("../../../../CharacterAI")
+
+[node name="room_7" type="Sprite2D" parent="CameraElements/CamRooms"]
+visible = false
+position = Vector2(361.5, 147.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("28_v5qfs")
+centered = false
+vframes = 4
+region_enabled = true
+region_rect = Rect2(128.44, 0, 798, 2372)
+
+[node name="TKJFixButton" type="Button" parent="CameraElements/CamRooms/room_7" node_paths=PackedStringArray("ai_manager")]
+offset_left = 800.0
+offset_top = 500.0
+offset_right = 903.0
+offset_bottom = 531.0
+text = "STOP DRAIN"
+script = ExtResource("17_2123g")
+button_type = 1
+ai_manager = NodePath("../../../../CharacterAI")
+
+[node name="room_8" type="Sprite2D" parent="CameraElements/CamRooms"]
+visible = false
+position = Vector2(361.5, 147.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("29_v5qfs")
+centered = false
+vframes = 8
+region_enabled = true
+region_rect = Rect2(128.44, 0, 798, 4744)
+
+[node name="room_9" type="Sprite2D" parent="CameraElements/CamRooms"]
+visible = false
+position = Vector2(361.5, 147.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("23_risgj")
+centered = false
+vframes = 2
+region_enabled = true
+region_rect = Rect2(128.43991, 0, 798, 1186)
+
+[node name="room_10" type="Sprite2D" parent="CameraElements/CamRooms"]
+visible = false
+position = Vector2(361.5, 147.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("24_risgj")
+centered = false
+vframes = 4
+region_enabled = true
+region_rect = Rect2(128.44, 0, 798, 2372)
+
+[node name="room_11" type="Sprite2D" parent="CameraElements/CamRooms"]
+visible = false
+position = Vector2(361.5, 147.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("32_5ku8n")
+centered = false
+vframes = 2
+region_enabled = true
+region_rect = Rect2(128.43991, 0, 798, 1186)
+
+[node name="room_12" type="Sprite2D" parent="CameraElements/CamRooms"]
+visible = false
+position = Vector2(361.5, 147.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("32_del28")
+centered = false
+vframes = 16
+region_enabled = true
+region_rect = Rect2(128.44, 0, 798, 9488)
+
+[node name="room_13" type="Sprite2D" parent="CameraElements/CamRooms"]
+visible = false
+position = Vector2(361.5, 147.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("25_s2li7")
+centered = false
+vframes = 2
+region_enabled = true
+region_rect = Rect2(128.43991, 0, 798, 1186)
+
+[node name="CamButtons" type="Node2D" parent="CameraElements"]
+z_index = 19
+
+[node name="room_1" type="TextureButton" parent="CameraElements/CamButtons"]
+offset_left = 925.0
+offset_top = 650.0
+offset_right = 973.0
+offset_bottom = 683.0
+scale = Vector2(1.5, 1.5)
+disabled = true
+action_mode = 0
+texture_normal = SubResource("AtlasTexture_y1mul")
+texture_disabled = SubResource("AtlasTexture_lrm77")
+
+[node name="room_2" type="TextureButton" parent="CameraElements/CamButtons"]
+offset_left = 1000.0
+offset_top = 725.0
+offset_right = 1048.0
+offset_bottom = 757.0
+scale = Vector2(1.5, 1.5)
+action_mode = 0
+texture_normal = SubResource("AtlasTexture_us2yt")
+texture_disabled = SubResource("AtlasTexture_qe3yf")
+
+[node name="room_3" type="TextureButton" parent="CameraElements/CamButtons"]
+offset_left = 1200.0
+offset_top = 675.0
+offset_right = 1248.0
+offset_bottom = 707.0
+scale = Vector2(1.5, 1.5)
+action_mode = 0
+texture_normal = SubResource("AtlasTexture_lcwij")
+texture_disabled = SubResource("AtlasTexture_60mtv")
+
+[node name="room_4" type="TextureButton" parent="CameraElements/CamButtons"]
+offset_left = 975.0
+offset_top = 800.0
+offset_right = 1023.0
+offset_bottom = 832.0
+scale = Vector2(1.5, 1.5)
+action_mode = 0
+texture_normal = SubResource("AtlasTexture_deh3i")
+texture_disabled = SubResource("AtlasTexture_lbcdr")
+
+[node name="room_5" type="TextureButton" parent="CameraElements/CamButtons"]
+offset_left = 1200.0
+offset_top = 775.0
+offset_right = 1248.0
+offset_bottom = 807.0
+scale = Vector2(1.5, 1.5)
+action_mode = 0
+texture_normal = SubResource("AtlasTexture_1ojnv")
+texture_disabled = SubResource("AtlasTexture_e71s1")
+
+[node name="room_6" type="TextureButton" parent="CameraElements/CamButtons"]
+offset_left = 1300.0
+offset_top = 750.0
+offset_right = 1348.0
+offset_bottom = 782.0
+scale = Vector2(1.5, 1.5)
+action_mode = 0
+texture_normal = SubResource("AtlasTexture_tf7aw")
+texture_disabled = SubResource("AtlasTexture_3ts1s")
+
+[node name="room_7" type="TextureButton" parent="CameraElements/CamButtons"]
+offset_left = 1300.0
+offset_top = 825.0
+offset_right = 1348.0
+offset_bottom = 857.0
+scale = Vector2(1.5, 1.5)
+action_mode = 0
+texture_normal = SubResource("AtlasTexture_2lb4s")
+texture_disabled = SubResource("AtlasTexture_rkp18")
+
+[node name="room_8" type="TextureButton" parent="CameraElements/CamButtons"]
+offset_left = 1400.0
+offset_top = 750.0
+offset_right = 1448.0
+offset_bottom = 782.0
+scale = Vector2(1.5, 1.5)
+action_mode = 0
+texture_normal = SubResource("AtlasTexture_15ttt")
+texture_disabled = SubResource("AtlasTexture_i5e34")
+
+[node name="room_9" type="TextureButton" parent="CameraElements/CamButtons"]
+offset_left = 1100.0
+offset_top = 915.0
+offset_right = 1148.0
+offset_bottom = 947.0
+scale = Vector2(1.5, 1.5)
+action_mode = 0
+texture_normal = SubResource("AtlasTexture_2123g")
+texture_disabled = SubResource("AtlasTexture_6h7ju")
+
+[node name="room_10" type="TextureButton" parent="CameraElements/CamButtons"]
+offset_left = 1200.0
+offset_top = 900.0
+offset_right = 1248.0
+offset_bottom = 932.0
+scale = Vector2(1.5, 1.5)
+action_mode = 0
+texture_normal = SubResource("AtlasTexture_vdbya")
+texture_disabled = SubResource("AtlasTexture_khy4v")
+
+[node name="room_11" type="TextureButton" parent="CameraElements/CamButtons"]
+offset_left = 1365.0
+offset_top = 900.0
+offset_right = 1413.0
+offset_bottom = 932.0
+scale = Vector2(1.5, 1.5)
+action_mode = 0
+texture_normal = SubResource("AtlasTexture_h28ug")
+texture_disabled = SubResource("AtlasTexture_egk1u")
+
+[node name="room_12" type="TextureButton" parent="CameraElements/CamButtons"]
+offset_left = 1450.0
+offset_top = 950.0
+offset_right = 1498.0
+offset_bottom = 982.0
+scale = Vector2(1.5, 1.5)
+action_mode = 0
+texture_normal = SubResource("AtlasTexture_s2li7")
+texture_disabled = SubResource("AtlasTexture_xftyl")
+
+[node name="room_13" type="TextureButton" parent="CameraElements/CamButtons"]
+offset_left = 1450.0
+offset_top = 850.0
+offset_right = 1498.0
+offset_bottom = 882.0
+scale = Vector2(1.5, 1.5)
+action_mode = 0
+texture_normal = SubResource("AtlasTexture_risgj")
+texture_disabled = SubResource("AtlasTexture_p6tga")
+
+[node name="CamHUD" type="Node2D" parent="CameraElements"]
+z_index = 18
+
+[node name="CRTWave_Shader" type="ColorRect" parent="CameraElements/CamHUD"]
+material = SubResource("ShaderMaterial_pbexm")
+offset_left = 361.0
+offset_top = 147.0
+offset_right = 1560.0
+offset_bottom = 1037.0
+mouse_filter = 2
+
+[node name="CamStatic" type="AnimatedSprite2D" parent="CameraElements/CamHUD"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(361.5, 147.5)
+sprite_frames = SubResource("SpriteFrames_1ioo0")
+autoplay = "default"
+centered = false
+
+[node name="Map&Border" type="Sprite2D" parent="CameraElements/CamHUD"]
+position = Vector2(959, 592)
+scale = Vector2(3, 3)
+texture = ExtResource("19_jyxs1")
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="CameraElements"]
+z_index = 15
+position = Vector2(960, 540)
+scale = Vector2(9.6, 5.4)
+copy_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CameraElements"]
+libraries = {
+&"": SubResource("AnimationLibrary_gkfmd")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="CameraElements"]
+tree_root = ExtResource("18_itk3u")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Add2/add_amount = 1.0
+parameters/OneShot/active = false
+parameters/OneShot/internal_active = false
+parameters/OneShot/request = 0
+
+[node name="JumpscareManager" type="Node2D" parent="." node_paths=PackedStringArray("office_manager", "camera_manager", "tablet_manager", "camera_node")]
+script = ExtResource("40_0txpj")
+jumpscare_duration = 1.0
+fade_to_black = true
+fade_duration = 0.7
+slide_duration = 0.2
+slide_offset = Vector2(0, 1500)
+slide_transition = "Cubic"
+static_duration = 3.0
+static_animation_speed = 30.0
+office_manager = NodePath("../OfficeElements")
+camera_manager = NodePath("../CameraElements")
+tablet_manager = NodePath("../TabletElements")
+camera_node = NodePath("../Camera2D")
+jumpscare_configs = Array[ExtResource("41_fyeqi")]([ExtResource("42_fyeqi"), ExtResource("43_del28"), ExtResource("44_pl3ap"), null])
+
+[node name="CharacterAI" type="Node" parent="."]
+script = ExtResource("19_nqdqv")
+use_manual_levels = true
+tkj_roamer_level = 20
+
+[node name="INSTAnomaly" type="Node" parent="CharacterAI" node_paths=PackedStringArray("camera", "office_manager", "jumpscare_manager")]
+script = ExtResource("26_1ojnv")
+camera = NodePath("../../CameraElements")
+office_manager = NodePath("../../OfficeElements")
+jumpscare_manager = NodePath("../../JumpscareManager")
+
+[node name="INSTTimer" type="Timer" parent="CharacterAI/INSTAnomaly"]
+wait_time = 5.0
+autostart = true
+
+[node name="TKJRoamer" type="Node" parent="CharacterAI" node_paths=PackedStringArray("camera", "office_manager")]
+script = ExtResource("27_e71s1")
+character = 1
+camera = NodePath("../../CameraElements")
+office_manager = NodePath("../../OfficeElements")
+
+[node name="TKJRoamerTimer" type="Timer" parent="CharacterAI/TKJRoamer"]
+wait_time = 5.0
+autostart = true
+
+[node name="TKRSprinter" type="Node" parent="CharacterAI" node_paths=PackedStringArray("camera", "office_manager", "jumpscare_manager")]
+script = ExtResource("29_6h7ju")
+character = 2
+camera = NodePath("../../CameraElements")
+office_manager = NodePath("../../OfficeElements")
+jumpscare_manager = NodePath("../../JumpscareManager")
+
+[node name="TKRSprinterTimer" type="Timer" parent="CharacterAI/TKRSprinter"]
+wait_time = 5.5
+autostart = true
+
+[node name="BigRobot" type="Node" parent="CharacterAI" node_paths=PackedStringArray("camera", "office_manager", "jumpscare_manager")]
+script = ExtResource("30_vdbya")
+character = 3
+camera = NodePath("../../CameraElements")
+office_manager = NodePath("../../OfficeElements")
+jumpscare_manager = NodePath("../../JumpscareManager")
+
+[node name="BigRobotTimer" type="Timer" parent="CharacterAI/BigRobot"]
+wait_time = 8.0
+autostart = true
+
+[node name="RPLDisruptor" type="Node" parent="CharacterAI" node_paths=PackedStringArray("camera_manager", "camera")]
+script = ExtResource("31_khy4v")
+camera_manager = NodePath("../../CameraElements")
+character = 4
+camera = NodePath("../../CameraElements")
+
+[node name="TKJDrainer" type="Node" parent="CharacterAI" node_paths=PackedStringArray("power_manager", "camera")]
+script = ExtResource("32_h28ug")
+power_manager = NodePath("../../PowerManager")
+character = 5
+camera = NodePath("../../CameraElements")
+
+[node name="PowerManager" type="Node" parent="." node_paths=PackedStringArray("tablet_manager", "power_out_sequence")]
+script = ExtResource("22_power")
+tablet_manager = NodePath("../TabletElements")
+power_out_sequence = NodePath("../PowerOutSequence")
+
+[node name="PowerOutSequence" type="Node" parent="."]
+script = ExtResource("53_8y2y3")
+office_manager_path = NodePath("../OfficeElements")
+tablet_manager_path = NodePath("../TabletElements")
+ai_manager_path = NodePath("../CharacterAI")
+jumpscare_manager_path = NodePath("../JumpscareManager")
+camera_manager_path = NodePath("../CameraElements")
+door_manager_path = NodePath("../OfficeElements/Office/DoorAndLight")
+hud_path = NodePath("../HUD")
+door_graphics_path = NodePath("../OfficeElements/Office/DoorSprites")
+
+[node name="NightTimer" type="Node" parent="."]
+script = ExtResource("23_timer")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("24_hud")
+power_label_path = NodePath("PowerLabel")
+hour_label_path = NodePath("HourLabel")
+debug_left_path = NodePath("DebugLeft")
+debug_right_path = NodePath("DebugRight")
+
+[node name="HourLabel" type="Label" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_top = 30.0
+offset_right = -40.0
+offset_bottom = 63.0
+grow_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("55_x7bti")
+theme_override_font_sizes/font_size = 32
+text = "00:00 WIB"
+horizontal_alignment = 2
+
+[node name="PowerLabel" type="Label" parent="HUD"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 70.0
+offset_top = -83.0
+offset_right = 326.0
+offset_bottom = -50.0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("55_x7bti")
+theme_override_font_sizes/font_size = 32
+text = "100%  |  Usage 0"
+
+[node name="DebugLeft" type="Label" parent="HUD"]
+visible = false
+offset_left = 30.0
+offset_top = 1000.0
+text = "L Door:Open | L Light:Off"
+
+[node name="DebugRight" type="Label" parent="HUD"]
+visible = false
+offset_left = 1600.0
+offset_top = 1000.0
+text = "R Door:Open | R Light:Off"
+
+[node name="PerspectiveShader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_kco4d")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("54_uho0t")
+jumpscare_manager_path = NodePath("../JumpscareManager")
+
+[node name="Node2" type="Node" parent="."]
+script = ExtResource("59_jdwom")
+power_manager_path = NodePath("../PowerManager")
+power_out_sequence_path = NodePath("../PowerOutSequence")
+
+[connection signal="input_event" from="OfficeElements/Office/Buttons/ButtonExample/Area2D" to="OfficeElements" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="OfficeElements/Office/Buttons/ButtonExample2/Area2D" to="OfficeElements" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="OfficeElements/Office/Buttons/ButtonExample3/Area2D" to="OfficeElements" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="OfficeElements/Office/Buttons/LeftDoorButton/Area2D" to="OfficeElements/Office/DoorAndLight" method="_on_left_door_button_input"]
+[connection signal="input_event" from="OfficeElements/Office/Buttons/LeftLightButton/Area2D" to="OfficeElements/Office/DoorAndLight" method="_on_left_light_button_input"]
+[connection signal="input_event" from="OfficeElements/Office/Buttons/RightLightButton/Area2D" to="OfficeElements/Office/DoorAndLight" method="_on_right_light_button_input"]
+[connection signal="input_event" from="OfficeElements/Office/Buttons/RightDoorButton/Area2D" to="OfficeElements/Office/DoorAndLight" method="_on_right_door_button_input"]
+[connection signal="animation_finished" from="TabletElements/Tablet_Sprite" to="TabletElements" method="_tablet_animation_finished"]
+[connection signal="mouse_entered" from="TabletElements/Tablet_Button" to="TabletElements" method="_on_tablet_button_hover" binds= [0.5]]
+[connection signal="mouse_exited" from="TabletElements/Tablet_Button" to="TabletElements" method="_on_tablet_button_hover" binds= [0.3]]
+[connection signal="pressed" from="TabletElements/Tablet_Button" to="TabletElements" method="_on_tablet_button_click"]
+[connection signal="pressed" from="CameraElements/CamRooms/room_6/RPLFixButton" to="CameraElements/CamRooms/room_6/RPLFixButton" method="_on_pressed"]
+[connection signal="pressed" from="CameraElements/CamRooms/room_7/TKJFixButton" to="CameraElements/CamRooms/room_7/TKJFixButton" method="_on_pressed"]
+[connection signal="pressed" from="CameraElements/CamButtons/room_1" to="CameraElements" method="switch_feed" binds= [0]]
+[connection signal="pressed" from="CameraElements/CamButtons/room_2" to="CameraElements" method="switch_feed" binds= [1]]
+[connection signal="pressed" from="CameraElements/CamButtons/room_3" to="CameraElements" method="switch_feed" binds= [2]]
+[connection signal="pressed" from="CameraElements/CamButtons/room_4" to="CameraElements" method="switch_feed" binds= [3]]
+[connection signal="pressed" from="CameraElements/CamButtons/room_5" to="CameraElements" method="switch_feed" binds= [4]]
+[connection signal="pressed" from="CameraElements/CamButtons/room_6" to="CameraElements" method="switch_feed" binds= [5]]
+[connection signal="pressed" from="CameraElements/CamButtons/room_7" to="CameraElements" method="switch_feed" binds= [6]]
+[connection signal="pressed" from="CameraElements/CamButtons/room_8" to="CameraElements" method="switch_feed" binds= [7]]
+[connection signal="pressed" from="CameraElements/CamButtons/room_9" to="CameraElements" method="switch_feed" binds= [8]]
+[connection signal="pressed" from="CameraElements/CamButtons/room_10" to="CameraElements" method="switch_feed" binds= [9]]
+[connection signal="pressed" from="CameraElements/CamButtons/room_11" to="CameraElements" method="switch_feed" binds= [10]]
+[connection signal="pressed" from="CameraElements/CamButtons/room_12" to="CameraElements" method="switch_feed" binds= [11]]
+[connection signal="pressed" from="CameraElements/CamButtons/room_13" to="CameraElements" method="switch_feed" binds= [12]]
+[connection signal="timeout" from="CharacterAI/INSTAnomaly/INSTTimer" to="CharacterAI/INSTAnomaly" method="move_check"]
+[connection signal="timeout" from="CharacterAI/TKJRoamer/TKJRoamerTimer" to="CharacterAI/TKJRoamer" method="move_check"]
+[connection signal="timeout" from="CharacterAI/TKRSprinter/TKRSprinterTimer" to="CharacterAI/TKRSprinter" method="move_check"]
+[connection signal="timeout" from="CharacterAI/BigRobot/BigRobotTimer" to="CharacterAI/BigRobot" method="move_check"]
+[connection signal="power_changed" from="PowerManager" to="HUD" method="set_power"]
+[connection signal="power_out" from="PowerManager" to="PowerOutSequence" method="start_sequence"]
+[connection signal="hour_changed" from="NightTimer" to="HUD" method="set_hour"]

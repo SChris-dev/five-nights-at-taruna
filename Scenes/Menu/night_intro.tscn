@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdgv7temsh8qx"]
+
+[ext_resource type="Script" uid="uid://bnyccunbidaba" path="res://Scripts/Menu/night_intro.gd" id="1_8jsy6"]
+[ext_resource type="FontFile" uid="uid://bfrhphr3nf0vm" path="res://Graphics/Fonts/DeterminationMonoWebRegular-Z5oq.ttf" id="2_07bqp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_07bqp"]
+font_size = 90
+
+[sub_resource type="LabelSettings" id="LabelSettings_gamki"]
+font_size = 72
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8jsy6")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1933.0
+offset_bottom = 1088.0
+color = Color(0, 0, 0, 1)
+
+[node name="NightLabel" type="Label" parent="."]
+layout_mode = 1
+offset_left = 791.0
+offset_top = 392.0
+offset_right = 1106.0
+offset_bottom = 516.0
+theme_override_fonts/font = ExtResource("2_07bqp")
+text = "Night 1"
+label_settings = SubResource("LabelSettings_07bqp")
+
+[node name="DateLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 792.0
+offset_top = 522.0
+offset_right = 1132.0
+offset_bottom = 621.0
+theme_override_fonts/font = ExtResource("2_07bqp")
+text = "00:00 WIB"
+label_settings = SubResource("LabelSettings_gamki")

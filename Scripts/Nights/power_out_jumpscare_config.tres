@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="JumpscareConfig" load_steps=2 format=3 uid="uid://dnunnrpn0aat8"]
+
+[ext_resource type="Script" uid="uid://dwoqcn6w0recw" path="res://Scripts/Nights/jumpscare_config.gd" id="1_n1jya"]
+
+[resource]
+script = ExtResource("1_n1jya")
+character_name = "PowerOut"

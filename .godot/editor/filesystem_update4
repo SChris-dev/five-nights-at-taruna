@@ -1,0 +1,11 @@
+res://Scenes/Nights/nights.tscn
+res://Shaders/crtwave_shader.gdshader
+res://AnimationTree/animtree_camera.tres
+res://Scripts/Nights/inst_jumpscare_config.tres
+res://Scripts/Nights/robot_jumpscare_config.tres
+res://Scripts/Nights/tkr_jumpscare_config.tres
+res://Scripts/Nights/Office/door_indicator_graphics.gd
+res://Scripts/Nights/Camera/Setups/tjp_setup.gd
+res://Scripts/Nights/AI/Characters/rpl_disruptor.gd
+res://Scripts/Nights/AI/Characters/tkj_drainer.gd
+res://Scripts/Global/global_data.gd

@@ -1,0 +1,88 @@
+[gd_resource type="Resource" script_class="JumpscareConfig" load_steps=14 format=3 uid="uid://e7sxiynfag60"]
+
+[ext_resource type="Script" uid="uid://dwoqcn6w0recw" path="res://Scripts/Nights/jumpscare_config.gd" id="1_ki6af"]
+[ext_resource type="Texture2D" uid="uid://b7k5xhw0cifte" path="res://Graphics/Jumpscares/big_robot_jumpscare.png" id="2_brpb3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye53c"]
+atlas = ExtResource("2_brpb3")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6e7l"]
+atlas = ExtResource("2_brpb3")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcr0j"]
+atlas = ExtResource("2_brpb3")
+region = Rect2(0, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ddqj"]
+atlas = ExtResource("2_brpb3")
+region = Rect2(0, 3240, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m47e0"]
+atlas = ExtResource("2_brpb3")
+region = Rect2(0, 4320, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m84a5"]
+atlas = ExtResource("2_brpb3")
+region = Rect2(0, 5400, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ksfq"]
+atlas = ExtResource("2_brpb3")
+region = Rect2(0, 6480, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfs85"]
+atlas = ExtResource("2_brpb3")
+region = Rect2(0, 7560, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g5cf"]
+atlas = ExtResource("2_brpb3")
+region = Rect2(0, 8640, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5fyh"]
+atlas = ExtResource("2_brpb3")
+region = Rect2(0, 9720, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qicd5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye53c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6e7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcr0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ddqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m47e0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m84a5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ksfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfs85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5g5cf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5fyh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[resource]
+script = ExtResource("1_ki6af")
+character_name = "BigRobot"
+use_animated_sprite = true
+sprite_frames = SubResource("SpriteFrames_qicd5")

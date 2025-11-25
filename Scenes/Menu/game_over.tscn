@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2chwugop3xa1"]
+
+[ext_resource type="Script" uid="uid://bjfqhhkf1pmmq" path="res://Scripts/Menu/game_over.gd" id="1_h17q0"]
+[ext_resource type="Texture2D" uid="uid://dk4y502kxhiec" path="res://Graphics/Menu/game_over/game_over.png" id="2_h17q0"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h17q0")
+transition_type = "Fade"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_h17q0")

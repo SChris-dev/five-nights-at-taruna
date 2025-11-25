@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://csbo138bjq2ok"]
+
+[ext_resource type="Script" uid="uid://wsqj5oyxwav1" path="res://Scripts/Menu/night_complete.gd" id="1_l6pl0"]
+[ext_resource type="Texture2D" uid="uid://d3kxtnwc4vcab" path="res://Graphics/Menu/paycheck_placeholder.jpg" id="2_515xn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_81f6j"]
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_6xju3"]
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_kytye"]
+font_size = 90
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6pl0")
+
+[node name="PaycheckPanel" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PayCheckBackground" type="TextureRect" parent="PaycheckPanel"]
+layout_mode = 0
+offset_right = 1935.0
+offset_bottom = 1092.0
+texture = ExtResource("2_515xn")
+
+[node name="NightLabel" type="Label" parent="PaycheckPanel"]
+layout_mode = 0
+offset_left = 1356.0
+offset_top = 839.0
+offset_right = 1862.0
+offset_bottom = 922.0
+text = "Night X Complete"
+label_settings = SubResource("LabelSettings_81f6j")
+
+[node name="AmountLabel" type="Label" parent="PaycheckPanel"]
+layout_mode = 0
+offset_left = 1428.0
+offset_top = 922.0
+offset_right = 1868.0
+offset_bottom = 1032.0
+text = "Rp. 100.000"
+label_settings = SubResource("LabelSettings_6xju3")
+
+[node name="SixAMLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 870.0
+offset_top = 455.0
+offset_right = 1087.0
+offset_bottom = 579.0
+text = "6 AM"
+label_settings = SubResource("LabelSettings_kytye")

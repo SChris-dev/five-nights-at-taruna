@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://s2esyf3rt1jq"]
+
+[ext_resource type="Script" uid="uid://631u6hs3p0h6" path="res://Scripts/Menu/main_menu.gd" id="1_tself"]
+[ext_resource type="Texture2D" uid="uid://dlofp1ar3gc16" path="res://Graphics/Menu/main_menu/menu_bg_overlay.png" id="3_7jtkx"]
+[ext_resource type="Texture2D" uid="uid://gu3wo2sk0of7" path="res://Graphics/Menu/main_menu/menu_buttons_group.png" id="4_vmek6"]
+[ext_resource type="Texture2D" uid="uid://btsxs3gwmwilk" path="res://Graphics/Menu/main_menu/title.png" id="5_ab7fb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab7fb"]
+atlas = ExtResource("4_vmek6")
+region = Rect2(0, 0, 460, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpijq"]
+atlas = ExtResource("4_vmek6")
+region = Rect2(0, 72, 492, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn3xf"]
+atlas = ExtResource("4_vmek6")
+region = Rect2(0, 185, 634, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17gaq"]
+atlas = ExtResource("4_vmek6")
+region = Rect2(0, 290, 627, 71)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tself")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1926.0
+offset_bottom = 1083.0
+
+[node name="BackgroundOverlay" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_7jtkx")
+stretch_mode = 6
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1627.0
+offset_top = 45.0
+offset_right = 1726.0
+offset_bottom = 102.0
+text = "Quit"
+
+[node name="NewGameButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 605.0
+offset_right = 526.0
+offset_bottom = 661.0
+texture_normal = SubResource("AtlasTexture_ab7fb")
+
+[node name="TitleLogo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 565.0
+offset_top = 151.0
+offset_right = 1835.0
+offset_bottom = 368.0
+texture = ExtResource("5_ab7fb")
+
+[node name="ContinueButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 663.0
+offset_right = 626.0
+offset_bottom = 776.0
+texture_normal = SubResource("AtlasTexture_gpijq")
+
+[node name="SelectNightButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 767.0
+offset_right = 767.0
+offset_bottom = 856.0
+texture_normal = SubResource("AtlasTexture_pn3xf")
+
+[node name="CustomNightButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 867.0
+offset_right = 761.0
+offset_bottom = 938.0
+texture_normal = SubResource("AtlasTexture_17gaq")
+
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="NewGameButton" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_pressed"]

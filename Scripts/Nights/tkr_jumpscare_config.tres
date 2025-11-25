@@ -1,0 +1,88 @@
+[gd_resource type="Resource" script_class="JumpscareConfig" load_steps=14 format=3 uid="uid://di338d6fnsvry"]
+
+[ext_resource type="Script" uid="uid://dwoqcn6w0recw" path="res://Scripts/Nights/jumpscare_config.gd" id="1_ct8qi"]
+[ext_resource type="Texture2D" uid="uid://d2ugxogyv8igc" path="res://Graphics/Jumpscares/tkr_jumpscare.png" id="2_k14kh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct8qi"]
+atlas = ExtResource("2_k14kh")
+region = Rect2(0, 6480, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k14kh"]
+atlas = ExtResource("2_k14kh")
+region = Rect2(0, 7560, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2ywd"]
+atlas = ExtResource("2_k14kh")
+region = Rect2(0, 8640, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuhcr"]
+atlas = ExtResource("2_k14kh")
+region = Rect2(0, 9720, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7wx6"]
+atlas = ExtResource("2_k14kh")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qs1fo"]
+atlas = ExtResource("2_k14kh")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnsba"]
+atlas = ExtResource("2_k14kh")
+region = Rect2(0, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no87s"]
+atlas = ExtResource("2_k14kh")
+region = Rect2(0, 3240, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgs8h"]
+atlas = ExtResource("2_k14kh")
+region = Rect2(0, 4320, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp1od"]
+atlas = ExtResource("2_k14kh")
+region = Rect2(0, 5400, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_prm2n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct8qi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k14kh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2ywd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuhcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7wx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qs1fo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnsba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no87s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgs8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pp1od")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[resource]
+script = ExtResource("1_ct8qi")
+character_name = "TKRSprinter"
+use_animated_sprite = true
+sprite_frames = SubResource("SpriteFrames_prm2n")
