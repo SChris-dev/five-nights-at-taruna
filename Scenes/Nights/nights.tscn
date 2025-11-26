@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://cthhku8fsrdeq"]
+[gd_scene load_steps=119 format=3 uid="uid://cthhku8fsrdeq"]
 
 [ext_resource type="Script" uid="uid://babox67oh2xx3" path="res://Scripts/Nights/Office/office_manager.gd" id="1_pp75g"]
 [ext_resource type="Texture2D" uid="uid://dsvw0bk5c36ue" path="res://Graphics/Office/office_complete.png" id="2_risgj"]
@@ -27,7 +27,6 @@
 [ext_resource type="Texture2D" uid="uid://c0d0jmshu18hk" path="res://Graphics/Static/static_anim.png" id="16_mcq0v"]
 [ext_resource type="Script" uid="uid://djxif588eqlw8" path="res://Scripts/Nights/Camera/camera_fix_button.gd" id="17_2123g"]
 [ext_resource type="Texture2D" uid="uid://ccxxchvq14cit" path="res://Graphics/CamRooms/Cam_4/New Piskel (17).png" id="17_risgj"]
-[ext_resource type="Texture2D" uid="uid://cjbnhvbjx88tv" path="res://Graphics/CamRooms/Cam_6/rpl_room.png" id="17_vdbya"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://siq8sv1mpgct" path="res://AnimationTree/animtree_camera.tres" id="18_itk3u"]
 [ext_resource type="Texture2D" uid="uid://dlu6by8ojqmym" path="res://Graphics/HUD/minimap-update-1.png.png" id="19_jyxs1"]
 [ext_resource type="Script" uid="uid://bh18ibgjqneeu" path="res://Scripts/Nights/AI/ai_manager.gd" id="19_nqdqv"]
@@ -42,10 +41,13 @@
 [ext_resource type="Texture2D" uid="uid://cyaaeqxgvhfs5" path="res://Graphics/CamRooms/Cam_13/audio.png" id="25_s2li7"]
 [ext_resource type="Texture2D" uid="uid://cajsaxush3fay" path="res://Graphics/CamRooms/Cam_5/stairs_updated.png" id="25_v5qfs"]
 [ext_resource type="Script" uid="uid://b6vvc1v2jcovu" path="res://Scripts/Nights/AI/Characters/inst_anomaly.gd" id="26_1ojnv"]
+[ext_resource type="Texture2D" uid="uid://dwvq3ghsgue11" path="res://Graphics/CamRooms/Cam_6/rpl_room_updated.png" id="26_v5qfs"]
 [ext_resource type="Script" uid="uid://dk7buem3wm2yg" path="res://Scripts/Nights/AI/Characters/tkj_roamer.gd" id="27_e71s1"]
+[ext_resource type="Texture2D" uid="uid://70wx341dew3h" path="res://Graphics/HUD/rpl_fix_button.png" id="28_ipors"]
 [ext_resource type="Texture2D" uid="uid://dfdxqkvjyce4x" path="res://Graphics/CamRooms/Cam_7/tkj_room_updated.png" id="28_v5qfs"]
 [ext_resource type="Script" uid="uid://mpyvv8p1urb3" path="res://Scripts/Nights/AI/Characters/tkr_sprinter.gd" id="29_6h7ju"]
 [ext_resource type="Texture2D" uid="uid://drk1w4lfa1lc5" path="res://Graphics/CamRooms/Cam_8/tkr_room_updated.png" id="29_v5qfs"]
+[ext_resource type="Texture2D" uid="uid://v0waoaun3liu" path="res://Graphics/HUD/tkj_fix_button.png" id="30_e4mjh"]
 [ext_resource type="Script" uid="uid://qawc20713a1w" path="res://Scripts/Nights/AI/Characters/big_robot.gd" id="30_vdbya"]
 [ext_resource type="Script" uid="uid://dlq63ga74erjt" path="res://Scripts/Nights/AI/Characters/rpl_disruptor.gd" id="31_khy4v"]
 [ext_resource type="Texture2D" uid="uid://jvi6cono87ye" path="res://Graphics/CamRooms/Cam_11/north_hallway_updated.png" id="32_5ku8n"]
@@ -56,7 +58,13 @@
 [ext_resource type="Resource" uid="uid://ckmpr55ti84ip" path="res://Scripts/Nights/inst_jumpscare_config.tres" id="42_fyeqi"]
 [ext_resource type="Resource" uid="uid://e7sxiynfag60" path="res://Scripts/Nights/robot_jumpscare_config.tres" id="43_del28"]
 [ext_resource type="Resource" uid="uid://di338d6fnsvry" path="res://Scripts/Nights/tkr_jumpscare_config.tres" id="44_pl3ap"]
+[ext_resource type="Resource" uid="uid://b0kkctuye7fl0" path="res://Scripts/Nights/tkj_jumpscare_config.tres" id="48_e4mjh"]
+[ext_resource type="Script" uid="uid://cpiv0ys8l4rrb" path="res://Scripts/Nights/audio_manager.gd" id="49_qygx1"]
+[ext_resource type="AudioStream" uid="uid://c5w7ukgyrsg5x" path="res://SFX/Office/door-slamming-fnaf-1-sound-effects.mp3" id="50_giv46"]
+[ext_resource type="AudioStream" uid="uid://dgoixh4lbf0lt" path="res://SFX/Office/fnaf-light-sound.mp3" id="51_1gv32"]
+[ext_resource type="AudioStream" uid="uid://dumsdljolly8f" path="res://SFX/Camera/fnaf-open-camera-sound.mp3" id="52_lfuya"]
 [ext_resource type="Script" uid="uid://dwj3hqognxces" path="res://Scripts/Nights/power_out_sequence.gd" id="53_8y2y3"]
+[ext_resource type="AudioStream" uid="uid://bfgvk3ib64g2w" path="res://SFX/Camera/fnaf2-camera.mp3" id="53_oy24g"]
 [ext_resource type="Script" uid="uid://5d1dhgkd3ium" path="res://tmp_rovodev_test_jumpscare.gd" id="54_uho0t"]
 [ext_resource type="FontFile" uid="uid://bfrhphr3nf0vm" path="res://Graphics/Fonts/DeterminationMonoWebRegular-Z5oq.ttf" id="55_x7bti"]
 [ext_resource type="Script" uid="uid://dmm0sljt16bu2" path="res://tmp_rovodev_test_powerout.gd" id="59_jdwom"]
@@ -704,7 +712,7 @@ texture_normal = ExtResource("8_hvcnl")
 [node name="CameraElements" type="Node2D" parent="." node_paths=PackedStringArray("ai_manager")]
 visible = false
 script = ExtResource("11_2lb4s")
-rooms = Array[Array]([[1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0], [0, 1, 0, 0, 0, 1], [0, 0, 1, 0, 0, 0], [0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]])
+rooms = Array[Array]([[1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0], [0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]])
 ai_manager = NodePath("../CharacterAI")
 
 [node name="CamRooms" type="Node2D" parent="CameraElements"]
@@ -763,7 +771,7 @@ region_rect = Rect2(128.44, 0, 798, 4744)
 visible = false
 position = Vector2(361.5, 147.5)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("17_vdbya")
+texture = ExtResource("26_v5qfs")
 centered = false
 vframes = 2
 region_enabled = true
@@ -772,11 +780,12 @@ region_rect = Rect2(128.43991, 0, 798, 1186)
 [node name="RPLFixButton" type="Button" parent="CameraElements/CamRooms/room_6" node_paths=PackedStringArray("ai_manager")]
 offset_left = 500.0
 offset_top = 400.0
-offset_right = 601.0
-offset_bottom = 431.0
+offset_right = 628.0
+offset_bottom = 464.0
 text = "FIX CAMERA"
 script = ExtResource("17_2123g")
 ai_manager = NodePath("../../../../CharacterAI")
+button_texture = ExtResource("28_ipors")
 
 [node name="room_7" type="Sprite2D" parent="CameraElements/CamRooms"]
 visible = false
@@ -791,12 +800,13 @@ region_rect = Rect2(128.44, 0, 798, 2372)
 [node name="TKJFixButton" type="Button" parent="CameraElements/CamRooms/room_7" node_paths=PackedStringArray("ai_manager")]
 offset_left = 800.0
 offset_top = 500.0
-offset_right = 903.0
-offset_bottom = 531.0
+offset_right = 928.0
+offset_bottom = 564.0
 text = "STOP DRAIN"
 script = ExtResource("17_2123g")
 button_type = 1
 ai_manager = NodePath("../../../../CharacterAI")
+button_texture = ExtResource("30_e4mjh")
 
 [node name="room_8" type="Sprite2D" parent="CameraElements/CamRooms"]
 visible = false
@@ -1048,12 +1058,18 @@ office_manager = NodePath("../OfficeElements")
 camera_manager = NodePath("../CameraElements")
 tablet_manager = NodePath("../TabletElements")
 camera_node = NodePath("../Camera2D")
-jumpscare_configs = Array[ExtResource("41_fyeqi")]([ExtResource("42_fyeqi"), ExtResource("43_del28"), ExtResource("44_pl3ap"), null])
+jumpscare_configs = Array[ExtResource("41_fyeqi")]([ExtResource("42_fyeqi"), ExtResource("43_del28"), ExtResource("44_pl3ap"), ExtResource("48_e4mjh")])
+
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource("49_qygx1")
+sound_door_toggle = ExtResource("50_giv46")
+sound_light_toggle = ExtResource("51_1gv32")
+sound_camera_open = ExtResource("52_lfuya")
+sound_camera_switch = ExtResource("53_oy24g")
 
 [node name="CharacterAI" type="Node" parent="."]
 script = ExtResource("19_nqdqv")
 use_manual_levels = true
-tkj_roamer_level = 20
 
 [node name="INSTAnomaly" type="Node" parent="CharacterAI" node_paths=PackedStringArray("camera", "office_manager", "jumpscare_manager")]
 script = ExtResource("26_1ojnv")

@@ -3,7 +3,7 @@ extends AI
 # RPL Camera Disruptor - Static anomaly that breaks cameras
 # Stays in ROOM_06 (RPL Room) and periodically disrupts cameras
 
-const ROOM_06 = 6  # RPL Room (never moves) - matches tjp_setup enum
+const ROOM_06 = 5  # RPL Room (never moves) - matches tjp_setup enum (ROOM_06 is index 5)
 
 signal camera_disrupted
 signal camera_fixed
@@ -12,7 +12,7 @@ var disruption_timer: float = 0.0
 var base_disruption_interval: float = 15.0  # Base interval at AI 0
 var disruption_interval: float = 45.0
 var is_disrupted: bool = false
-var has_initialized: bool = false
+var last_ai_level: int = -1  # Track AI level changes
 
 @export var camera_manager: Node  # Reference to CameraElements
 
@@ -25,10 +25,9 @@ func _ready() -> void:
 	call_deferred("_update_visibility")
 
 func _process(delta: float) -> void:
-	# Check if AI level was just set (happens after _ready)
-	if not has_initialized:
-		_update_visibility()
-		has_initialized = true
+	# Always ensure visibility matches AI level
+	# This handles both initialization and any AI level changes during gameplay
+	_update_visibility()
 	
 	# Completely disabled at AI level 0
 	if ai_level == 0:
@@ -47,19 +46,16 @@ func _process(delta: float) -> void:
 
 func _update_visibility() -> void:
 	"""Update camera visibility based on AI level"""
-	print("[RPLDisruptor] _update_visibility called - AI level:", ai_level)
-	print("[RPLDisruptor] Character enum value:", character)
-	print("[RPLDisruptor] ROOM_06 value:", ROOM_06)
-	print("[RPLDisruptor] Current state in camera:", camera.rooms[ROOM_06][character])
+	# Only update if AI level has changed
+	if ai_level == last_ai_level:
+		return
+	
+	last_ai_level = ai_level
 	
 	if ai_level == 0:
-		print("[RPLDisruptor] Setting to ABSENT (not visible)")
 		camera.rooms[ROOM_06][character] = State.ABSENT
-		print("[RPLDisruptor] After setting - state is:", camera.rooms[ROOM_06][character])
 	else:
-		print("[RPLDisruptor] Setting to PRESENT (visible) - AI level:", ai_level)
 		camera.rooms[ROOM_06][character] = State.PRESENT
-		print("[RPLDisruptor] After setting - state is:", camera.rooms[ROOM_06][character])
 	
 	camera.update_feeds([ROOM_06])
 

@@ -18,19 +18,19 @@ enum {
 
 # Room names displayed on camera feeds
 const ROOM_NAMES: Array[String] = [
-	"INST Room",           # ROOM_01
-	"Upper Hallway",       # ROOM_02
-	"Outer Auditorium",    # ROOM_03
-	"School Yard",         # ROOM_04
-	"The Stairs",          # ROOM_05
-	"RPL Room",            # ROOM_06
-	"TKJ Room",            # ROOM_07
-	"TKR Hallway",         # ROOM_08
-	"TPM/LAS Hallway",     # ROOM_09
-	"South Hallway",       # ROOM_10
-	"North Hallway",       # ROOM_11
-	"Lower Hallway",       # ROOM_12
-	"OSIS Room"            # ROOM_13
+	"Ruang Instalasi",    # ROOM_01
+	"Lorong Atas",        # ROOM_02
+	"Luar Aula",          # ROOM_03
+	"Lapangan Sekolah",   # ROOM_04
+	"Pertigaan Tangga",   # ROOM_05
+	"LAB RPL",            # ROOM_06
+	"LAB TKJ",            # ROOM_07
+	"Lorong TKR",         # ROOM_08
+	"Lorong TPM/LAS",     # ROOM_09
+	"Lorong Selatan",     # ROOM_10
+	"Lorong Utara",       # ROOM_11
+	"Lorong Bawah",       # ROOM_12
+	"Ruang OSIS"          # ROOM_13
 ]
 
 # Character indices in rooms array
@@ -54,6 +54,7 @@ var normal_static_alpha: float = 0.235  # Normal static transparency (from anima
 var disrupted_static_alpha: float = 0.95  # Max static when disrupted (barely visible)
 
 @onready var cam_static: AnimatedSprite2D = $CamHUD/CamStatic
+@onready var audio_manager = get_node("/root/Nights/AudioManager")
 
 func _ready() -> void:
 	super._ready()  # Call parent's _ready to initialize feeds and buttons
@@ -119,6 +120,7 @@ func play_static() -> void:
 
 func switch_feed(new_feed: int) -> void:
 	# Handle camera switching manually to control static effect
+	audio_manager.play_camera_switch_sound()
 	if current_feed != new_feed:
 		# Show blackout/static effect
 		play_static()

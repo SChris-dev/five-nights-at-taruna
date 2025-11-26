@@ -17,6 +17,8 @@ var animatronics_at_right_door: Array[String] = []
 
 var controls_disabled: bool = false
 
+@onready var audio_manager = get_node("/root/Nights/AudioManager")
+
 # Door indicator sprites (OLD - ColorRect placeholders, kept for backwards compatibility)
 @onready var inst_indicator: ColorRect = $LeftDoorIndicators/INSTIndicator if has_node("LeftDoorIndicators/INSTIndicator") else null
 @onready var tkj_indicator: ColorRect = $RightDoorIndicators/TKJIndicator if has_node("RightDoorIndicators/TKJIndicator") else null
@@ -39,7 +41,7 @@ func _toggle_left_door() -> void:
 	_update_hud()
 	_update_door_indicators()
 	_update_door_graphics()
-	# TODO: Play door sound effect
+	audio_manager.play_door_sound()
 
 func _toggle_right_door() -> void:
 	if controls_disabled:
@@ -51,7 +53,7 @@ func _toggle_right_door() -> void:
 	_update_hud()
 	_update_door_indicators()
 	_update_door_graphics()
-	# TODO: Play door sound effect
+	audio_manager.play_door_sound()
 
 func _toggle_left_light() -> void:
 	if controls_disabled:
@@ -64,7 +66,11 @@ func _toggle_left_light() -> void:
 	_check_light_reveal("left")
 	_update_door_indicators()
 	_update_light_button_sprites()
-	# TODO: Play light sound effect
+	if left_light_on:
+		audio_manager.play_light_on_sound()
+	else:
+		audio_manager.play_light_off_sound()
+	
 
 func _toggle_right_light() -> void:
 	if controls_disabled:
@@ -77,7 +83,10 @@ func _toggle_right_light() -> void:
 	_check_light_reveal("right")
 	_update_door_indicators()
 	_update_light_button_sprites()
-	# TODO: Play light sound effect
+	if right_light_on:
+		audio_manager.play_light_on_sound()
+	else:
+		audio_manager.play_light_off_sound()
 
 func _on_left_door_area_input(_viewport, event, _shape_idx) -> void:
 	if event.is_action_pressed("click_left"):

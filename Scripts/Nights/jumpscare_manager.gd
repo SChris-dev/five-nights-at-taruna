@@ -330,8 +330,8 @@ func _end_jumpscare() -> void:
 		camera_node.offset = original_camera_offset
 	
 	# Stop audio
-	if audio_player and audio_player.playing:
-		audio_player.stop()
+	#if audio_player and audio_player.playing:
+		#audio_player.stop()
 	
 	emit_signal("jumpscare_ended")
 	

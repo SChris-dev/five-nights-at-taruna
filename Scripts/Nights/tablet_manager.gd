@@ -12,6 +12,7 @@ var is_disabled: bool = false
 
 @onready var tablet_button: TextureButton = $Tablet_Button
 @onready var tablet_sprite: AnimatedSprite2D = $Tablet_Sprite
+@onready var audio_manager = get_node("/root/Nights/AudioManager")
 
 func _on_tablet_button_click() -> void:
 	# Don't allow tablet interaction if disabled
@@ -23,10 +24,12 @@ func _on_tablet_button_click() -> void:
 		tablet_sprite.play("lift")
 		tablet_sprite.visible = true
 		office.can_move = false
+		audio_manager.play_camera_open_sound()
 	else:
 		tablet_sprite.play_backwards("lift")
 		tablet_button.disabled = true
 		camera.visible = false
+		audio_manager.play_camera_open_sound()
 
 func _tablet_animation_finished() -> void:
 	if not is_tablet_up:

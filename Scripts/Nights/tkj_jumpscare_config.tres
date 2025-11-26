@@ -1,0 +1,88 @@
+[gd_resource type="Resource" script_class="JumpscareConfig" load_steps=14 format=3 uid="uid://b0kkctuye7fl0"]
+
+[ext_resource type="Script" uid="uid://dwoqcn6w0recw" path="res://Scripts/Nights/jumpscare_config.gd" id="1_27d6g"]
+[ext_resource type="Texture2D" uid="uid://bryoa07y3535e" path="res://Graphics/Jumpscares/tkj_jumpscare.png" id="2_fbs7l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgkdy"]
+atlas = ExtResource("2_fbs7l")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6n3k"]
+atlas = ExtResource("2_fbs7l")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx8tn"]
+atlas = ExtResource("2_fbs7l")
+region = Rect2(0, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7ymq"]
+atlas = ExtResource("2_fbs7l")
+region = Rect2(0, 3240, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhnr7"]
+atlas = ExtResource("2_fbs7l")
+region = Rect2(0, 4320, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uihj3"]
+atlas = ExtResource("2_fbs7l")
+region = Rect2(0, 5400, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxrbi"]
+atlas = ExtResource("2_fbs7l")
+region = Rect2(0, 6480, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opehx"]
+atlas = ExtResource("2_fbs7l")
+region = Rect2(0, 7560, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a5co"]
+atlas = ExtResource("2_fbs7l")
+region = Rect2(0, 8640, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apdof"]
+atlas = ExtResource("2_fbs7l")
+region = Rect2(0, 9720, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gvkxi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgkdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6n3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx8tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7ymq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhnr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uihj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxrbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opehx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5a5co")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apdof")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[resource]
+script = ExtResource("1_27d6g")
+character_name = "TKJRoamer"
+use_animated_sprite = true
+sprite_frames = SubResource("SpriteFrames_gvkxi")

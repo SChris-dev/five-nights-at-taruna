@@ -3,7 +3,7 @@ extends AI
 # TKJ Power Drainer - Static anomaly that drains extra power
 # Stays in ROOM_07 (TKJ Room) and increases power drain
 
-const ROOM_07 = 7  # TKJ Room (never moves) - matches tjp_setup enum
+const ROOM_07 = 6  # TKJ Room (never moves) - matches tjp_setup enum (ROOM_07 is index 6)
 
 signal power_drain_active
 signal power_drain_stopped
@@ -14,7 +14,7 @@ var base_drain_interval: float = 40.0  # Base interval at AI 0
 var drain_interval: float = 40.0
 var base_drain_rate: float = 0.5  # Base drain rate
 var extra_drain_rate: float = 0.5  # Calculated based on AI level
-var has_initialized: bool = false
+var last_ai_level: int = -1  # Track AI level changes
 
 @export var power_manager: Node  # Reference to PowerManager
 
@@ -28,19 +28,16 @@ func _ready() -> void:
 
 func _update_visibility() -> void:
 	"""Update camera visibility based on AI level"""
-	print("[TKJDrainer] _update_visibility called - AI level:", ai_level)
-	print("[TKJDrainer] Character enum value:", character)
-	print("[TKJDrainer] ROOM_07 value:", ROOM_07)
-	print("[TKJDrainer] Current state in camera:", camera.rooms[ROOM_07][character])
+	# Only update if AI level has changed
+	if ai_level == last_ai_level:
+		return
+	
+	last_ai_level = ai_level
 	
 	if ai_level == 0:
-		print("[TKJDrainer] Setting to ABSENT (not visible)")
 		camera.rooms[ROOM_07][character] = State.ABSENT
-		print("[TKJDrainer] After setting - state is:", camera.rooms[ROOM_07][character])
 	else:
-		print("[TKJDrainer] Setting to PRESENT (visible) - AI level:", ai_level)
 		camera.rooms[ROOM_07][character] = State.PRESENT
-		print("[TKJDrainer] After setting - state is:", camera.rooms[ROOM_07][character])
 	
 	camera.update_feeds([ROOM_07])
 
@@ -56,10 +53,9 @@ func _calculate_drain_values() -> void:
 	print("[TKJDrainer] AI Level:", ai_level, "| Interval:", drain_interval, "sec | Drain rate:", extra_drain_rate, "%/sec")
 
 func _process(delta: float) -> void:
-	# Check if AI level was just set (happens after _ready)
-	if not has_initialized:
-		_update_visibility()
-		has_initialized = true
+	# Always ensure visibility matches AI level
+	# This handles both initialization and any AI level changes during gameplay
+	_update_visibility()
 	
 	# Completely disabled at AI level 0
 	if ai_level == 0:

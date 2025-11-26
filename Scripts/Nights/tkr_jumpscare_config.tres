@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="JumpscareConfig" load_steps=14 format=3 uid="uid://di338d6fnsvry"]
+[gd_resource type="Resource" script_class="JumpscareConfig" load_steps=15 format=3 uid="uid://di338d6fnsvry"]
 
 [ext_resource type="Script" uid="uid://dwoqcn6w0recw" path="res://Scripts/Nights/jumpscare_config.gd" id="1_ct8qi"]
+[ext_resource type="AudioStream" uid="uid://cyabjwku6tnd1" path="res://SFX/Jumpscares/fnaf-6-jumpscare-sound-effect.mp3" id="1_k14kh"]
 [ext_resource type="Texture2D" uid="uid://d2ugxogyv8igc" path="res://Graphics/Jumpscares/tkr_jumpscare.png" id="2_k14kh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ct8qi"]
@@ -86,3 +87,4 @@ script = ExtResource("1_ct8qi")
 character_name = "TKRSprinter"
 use_animated_sprite = true
 sprite_frames = SubResource("SpriteFrames_prm2n")
+jumpscare_sound = ExtResource("1_k14kh")
