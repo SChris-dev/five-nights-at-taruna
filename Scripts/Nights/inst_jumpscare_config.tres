@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="JumpscareConfig" load_steps=14 format=3 uid="uid://ckmpr55ti84ip"]
+[gd_resource type="Resource" script_class="JumpscareConfig" load_steps=15 format=3 uid="uid://ckmpr55ti84ip"]
 
+[ext_resource type="AudioStream" uid="uid://db83b1lj8hsqo" path="res://SFX/Jumpscares/fnati-2-let-the-show-begin-v1-v2-jumpscare-sound.mp3" id="1_6see6"]
 [ext_resource type="Script" uid="uid://dwoqcn6w0recw" path="res://Scripts/Nights/jumpscare_config.gd" id="1_wgjot"]
 [ext_resource type="Texture2D" uid="uid://cphuyct3kqq2n" path="res://Graphics/Jumpscares/inst_jumpscare_updated.png" id="2_wgjot"]
 
@@ -86,3 +87,4 @@ script = ExtResource("1_wgjot")
 character_name = "INSTAnomaly"
 use_animated_sprite = true
 sprite_frames = SubResource("SpriteFrames_cpwf0")
+jumpscare_sound = ExtResource("1_6see6")

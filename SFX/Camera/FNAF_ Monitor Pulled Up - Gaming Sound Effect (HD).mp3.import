@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://id1f8kgnaqw7"
+path="res://.godot/imported/FNAF_ Monitor Pulled Up - Gaming Sound Effect (HD).mp3-5ed3f5698d4ad2208c9365e26251bd68.mp3str"
+
+[deps]
+
+source_file="res://SFX/Camera/FNAF_ Monitor Pulled Up - Gaming Sound Effect (HD).mp3"
+dest_files=["res://.godot/imported/FNAF_ Monitor Pulled Up - Gaming Sound Effect (HD).mp3-5ed3f5698d4ad2208c9365e26251bd68.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

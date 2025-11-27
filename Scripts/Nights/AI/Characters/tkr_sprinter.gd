@@ -44,6 +44,14 @@ var player_aware_of_sprint: bool = false  # Player checked cam 12 or saw disappe
 var attack_cooldown: float = 0.0
 var cooldown_duration: float = 25.0
 
+# Audio settings
+@export var audio_manager: Node  # Reference to AudioManager
+@export var sprint_sound: AudioStream  # Sound when sprinting starts (running footsteps, etc.)
+@export var sprint_sound_volume: float = -10.0  # Volume in dB (0 = full, -10 = half, -20 = quarter)
+@export var door_bang_sound: AudioStream  # Sound when blocked by door
+@export var door_bang_volume: float = -5.0  # Volume in dB
+var sprint_audio_player: AudioStreamPlayer = null
+
 func _ready() -> void:
 	current_room = ROOM_08
 	door_side = "right"
@@ -114,7 +122,9 @@ func _start_sprint() -> void:
 	camera.rooms[ROOM_12][character] = State.PRESENT
 	camera.update_feeds([ROOM_12])
 
-	# TODO: Play sprint sound effect
+	# Play sprint sound effect (looping footsteps)
+	_play_sprint_sound()
+	
 	print("[TKRSprinter] 🏃 Running through hallway! Check cam 12 to see!")
 
 func _reach_door() -> void:
@@ -137,11 +147,15 @@ func _reach_door() -> void:
 func _blocked_by_door() -> void:
 	print("[TKRSprinter] 🚪 Blocked by door! Draining power and resetting...")
 
+	# Stop sprint sound
+	_stop_sprint_sound()
+
 	# Clear from hallway and reset animation
 	camera.rooms[ROOM_12][character] = State.ABSENT
 	camera.update_feeds([ROOM_12])
 
-	# TODO: Play door bang sound
+	# Play door bang sound
+	_play_door_bang_sound()
 
 	# Drain extra power (more than normal door usage)
 	# Try to find PowerManager in the scene tree
@@ -174,6 +188,9 @@ func _reset_to_start() -> void:
 
 func trigger_jumpscare() -> void:
 	print("[TKRSprinter] 💀 JUMPSCARE! Player failed to close door in time!")
+
+	# Stop sprint sound
+	_stop_sprint_sound()
 
 	# Clear from cameras
 	camera.rooms[ROOM_12][character] = State.ABSENT
@@ -211,3 +228,49 @@ func move_options() -> void:
 	# This character doesn't use the standard move_options system
 	# All movement is handled by phase advancement and move_check()
 	pass
+
+func _play_sprint_sound() -> void:
+	"""Play looping sprint sound (footsteps running)"""
+	if sprint_sound:
+		# Stop previous sound if playing
+		if sprint_audio_player and sprint_audio_player.playing:
+			sprint_audio_player.stop()
+			sprint_audio_player.queue_free()
+		
+		# Create looping audio player
+		sprint_audio_player = AudioStreamPlayer.new()
+		sprint_audio_player.stream = sprint_sound
+		sprint_audio_player.volume_db = sprint_sound_volume  # Adjustable volume
+		
+		# Set to loop if audio format supports it
+		if sprint_sound is AudioStreamWAV:
+			sprint_sound.loop_mode = AudioStreamWAV.LOOP_FORWARD
+		elif sprint_sound is AudioStreamOggVorbis:
+			sprint_sound.loop = true
+		
+		add_child(sprint_audio_player)
+		sprint_audio_player.play()
+		print("[TKRSprinter] Playing sprint sound (footsteps)")
+	else:
+		print("[TKRSprinter] No sprint sound configured")
+
+func _stop_sprint_sound() -> void:
+	"""Stop sprint sound"""
+	if sprint_audio_player and sprint_audio_player.playing:
+		sprint_audio_player.stop()
+		sprint_audio_player.queue_free()
+		sprint_audio_player = null
+		print("[TKRSprinter] Sprint sound stopped")
+
+func _play_door_bang_sound() -> void:
+	"""Play door bang sound when blocked"""
+	if door_bang_sound:
+		var bang_player = AudioStreamPlayer.new()
+		bang_player.stream = door_bang_sound
+		bang_player.volume_db = door_bang_volume  # Adjustable volume
+		add_child(bang_player)
+		bang_player.play()
+		bang_player.finished.connect(func(): bang_player.queue_free())
+		print("[TKRSprinter] Playing door bang sound")
+	else:
+		print("[TKRSprinter] No door bang sound configured")

@@ -51,6 +51,11 @@ signal ambient_sound_played(sound_name: String)
 @export var sound_freddy_music_box: AudioStream  # Freddy's music box during power out
 @export var power_out_volume: float = -5.0  # dB
 
+#@export_group("Passive Anomalies Audio")
+#@export var sound_rpl_disruptor: AudioStream
+#@export var sound_tkj_drainer: AudioStream
+#@export var anomalies_volume: float = 0.0
+
 # Audio players (created dynamically)
 var phone_player: AudioStreamPlayer
 var ambient_player: AudioStreamPlayer

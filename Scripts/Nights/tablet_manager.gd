@@ -29,7 +29,7 @@ func _on_tablet_button_click() -> void:
 		tablet_sprite.play_backwards("lift")
 		tablet_button.disabled = true
 		camera.visible = false
-		audio_manager.play_camera_open_sound()
+		audio_manager.play_camera_close_sound()
 
 func _tablet_animation_finished() -> void:
 	if not is_tablet_up:
@@ -50,6 +50,10 @@ func _on_tablet_button_hover(alpha: float) -> void:
 	tweener = create_tween()
 	tweener.tween_property(tablet_button, "modulate:a", alpha, HOVER_FADE_DURATION)
 
+func disable_controls() -> void:
+	"""Disable controls (alias for disable_tablet, for NightTimer compatibility)"""
+	disable_tablet()
+
 func disable_tablet() -> void:
 	"""Disable tablet interaction (for power out or jumpscare)"""
 	is_disabled = true
@@ -63,6 +67,10 @@ func disable_tablet() -> void:
 		camera.visible = false
 		camera.close_camera()  # Notify AI that camera closed
 		office.can_move = true
+
+func enable_controls() -> void:
+	"""Re-enable controls (alias for enable_tablet, for consistency)"""
+	enable_tablet()
 
 func enable_tablet() -> void:
 	"""Re-enable tablet interaction"""

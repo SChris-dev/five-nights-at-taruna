@@ -1,9 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://s2esyf3rt1jq"]
+[gd_scene load_steps=16 format=3 uid="uid://s2esyf3rt1jq"]
 
 [ext_resource type="Script" uid="uid://631u6hs3p0h6" path="res://Scripts/Menu/main_menu.gd" id="1_tself"]
 [ext_resource type="Texture2D" uid="uid://dlofp1ar3gc16" path="res://Graphics/Menu/main_menu/menu_bg_overlay.png" id="3_7jtkx"]
 [ext_resource type="Texture2D" uid="uid://gu3wo2sk0of7" path="res://Graphics/Menu/main_menu/menu_buttons_group.png" id="4_vmek6"]
+[ext_resource type="Script" uid="uid://cpiv0ys8l4rrb" path="res://Scripts/Nights/audio_manager.gd" id="5_1di0l"]
 [ext_resource type="Texture2D" uid="uid://btsxs3gwmwilk" path="res://Graphics/Menu/main_menu/title.png" id="5_ab7fb"]
+[ext_resource type="AudioStream" uid="uid://c5w7ukgyrsg5x" path="res://SFX/Office/door-slamming-fnaf-1-sound-effects.mp3" id="6_w1xia"]
+[ext_resource type="AudioStream" uid="uid://dgoixh4lbf0lt" path="res://SFX/Office/fnaf-light-sound.mp3" id="7_nbh3q"]
+[ext_resource type="AudioStream" uid="uid://dumsdljolly8f" path="res://SFX/Camera/fnaf-open-camera-sound.mp3" id="8_4qbh4"]
+[ext_resource type="AudioStream" uid="uid://bfgvk3ib64g2w" path="res://SFX/Camera/fnaf2-camera.mp3" id="9_3ko7u"]
+[ext_resource type="Texture2D" uid="uid://v0waoaun3liu" path="res://Graphics/HUD/tkj_fix_button.png" id="10_nbh3q"]
+[ext_resource type="Texture2D" uid="uid://70wx341dew3h" path="res://Graphics/HUD/rpl_fix_button.png" id="11_4qbh4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ab7fb"]
 atlas = ExtResource("4_vmek6")
@@ -90,6 +97,33 @@ offset_right = 761.0
 offset_bottom = 938.0
 texture_normal = SubResource("AtlasTexture_17gaq")
 
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource("5_1di0l")
+sound_door_toggle = ExtResource("6_w1xia")
+sound_light_toggle = ExtResource("7_nbh3q")
+sound_camera_open = ExtResource("8_4qbh4")
+sound_camera_switch = ExtResource("9_3ko7u")
+sound_button_click = ExtResource("9_3ko7u")
+
+[node name="ResetButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1375.0
+offset_top = 589.0
+offset_right = 1503.0
+offset_bottom = 653.0
+texture_normal = ExtResource("10_nbh3q")
+
+[node name="SettingsButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1089.0
+offset_top = 589.0
+offset_right = 1217.0
+offset_bottom = 653.0
+texture_normal = ExtResource("11_4qbh4")
+
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="NewGameButton" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="ContinueButton" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="SelectNightButton" to="." method="_on_night_select_pressed"]
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_pressed"]

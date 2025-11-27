@@ -25,8 +25,10 @@ var is_being_viewed: bool = false  # True when player is viewing Big Robot's cur
 var move_timer: float = 0.0
 var attack_ready: bool = false  # True when at ROOM_10, next move = attack
 
-# Audio player for movement sounds (Freddy's laugh)
-@onready var movement_sound: AudioStreamPlayer = null  # TODO: Assign in scene
+# Audio settings for movement sounds (Freddy-like laughs, growls, etc.)
+@export var movement_sounds: Array[AudioStream] = []  # Array of random sounds to play on movement
+@export var movement_sound_volume: float = -8.0  # Volume in dB
+@export var play_sound_chance: float = 1.0  # Chance to play sound (0.0-1.0), 1.0 = always
 
 func _ready() -> void:
 	current_room = ROOM_09
@@ -206,11 +208,28 @@ func on_camera_closed() -> void:
 	print("[BigRobot] Camera closed - can move again")
 
 func _play_movement_sound() -> void:
-	# TODO: Play Freddy-like laugh sound when moving
-	# Example implementation:
-	# if movement_sound and movement_sound.stream:
-	#     movement_sound.play()
-	#     print("[BigRobot] 🔊 Playing movement sound (laugh)")
+	"""Play a random movement sound when Big Robot moves (like Freddy's laugh)"""
+	# Check if we should play a sound based on chance
+	if randf() > play_sound_chance:
+		print("[BigRobot] Skipping sound (based on play_sound_chance)")
+		return
 	
-	print("[BigRobot] 🔊 [SOUND PLACEHOLDER] Playing laugh sound when moving")
-	print("[BigRobot] TODO: Assign AudioStreamPlayer with laugh sound in scene")
+	# Check if sounds are configured
+	if movement_sounds.is_empty():
+		print("[BigRobot] No movement sounds configured")
+		return
+	
+	# Pick a random sound from the array
+	var random_sound = movement_sounds[randi() % movement_sounds.size()]
+	
+	# Create audio player for this sound
+	var sound_player = AudioStreamPlayer.new()
+	sound_player.stream = random_sound
+	sound_player.volume_db = movement_sound_volume
+	add_child(sound_player)
+	sound_player.play()
+	
+	# Auto-delete when finished
+	sound_player.finished.connect(func(): sound_player.queue_free())
+	
+	print("[BigRobot] 🔊 Playing movement sound (", random_sound.resource_path.get_file(), ")")

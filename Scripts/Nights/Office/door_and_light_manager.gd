@@ -15,9 +15,18 @@ var right_light_on: bool = false
 var animatronics_at_left_door: Array[String] = []
 var animatronics_at_right_door: Array[String] = []
 
+# Track which animatronics have been revealed (to play sound only once per visit)
+var left_door_revealed: Dictionary = {}  # {character_name: bool}
+var right_door_revealed: Dictionary = {}  # {character_name: bool}
+
 var controls_disabled: bool = false
 
 @onready var audio_manager = get_node("/root/Nights/AudioManager")
+
+# Audio settings for door reveals
+@export var door_reveal_sounds: Dictionary = {}  # {character_name: AudioStream}
+@export var default_reveal_sound: AudioStream  # Fallback sound if character has no specific sound
+@export var reveal_sound_volume: float = -8.0  # Volume in dB
 
 # Door indicator sprites (OLD - ColorRect placeholders, kept for backwards compatibility)
 @onready var inst_indicator: ColorRect = $LeftDoorIndicators/INSTIndicator if has_node("LeftDoorIndicators/INSTIndicator") else null
@@ -127,16 +136,27 @@ func _update_hud() -> void:
 func _check_light_reveal(side: String) -> void:
 	# Check if animatronic is at door when light turns on
 	var animatronics: Array[String] = []
+	var revealed_dict: Dictionary
 	
 	if side == "left":
 		animatronics = animatronics_at_left_door
+		revealed_dict = left_door_revealed
 	else:
 		animatronics = animatronics_at_right_door
+		revealed_dict = right_door_revealed
 	
-	if animatronics.size() > 0 and ((side == "left" and left_light_on) or (side == "right" and right_light_on)):
-		# Show animatronic indicators
-		# TODO: Play breathing/ambient sound for that animatronic
-		pass
+	# Only play sound when light turns ON (not off)
+	var light_is_on = (side == "left" and left_light_on) or (side == "right" and right_light_on)
+	
+	if animatronics.size() > 0 and light_is_on:
+		# Play reveal sound for each animatronic that hasn't been revealed yet
+		for character in animatronics:
+			if not revealed_dict.get(character, false):
+				# Mark as revealed
+				revealed_dict[character] = true
+				# Play reveal sound
+				_play_door_reveal_sound(character, side)
+				print("[DoorManager] Revealed", character, "at", side, "door - playing sound")
 
 func is_door_closed(side: String) -> bool:
 	# Called by AI to check door status
@@ -159,10 +179,14 @@ func register_animatronic_at_door(character: String, side: String) -> void:
 	# Called by AI when animatronic reaches door
 	if side == "left" and character not in animatronics_at_left_door:
 		animatronics_at_left_door.append(character)
+		# Mark as not revealed yet (will be revealed when light is turned on)
+		left_door_revealed[character] = false
 		print("[DoorManager] Registered", character, "at left door")
 		_update_door_indicators()
 	elif side == "right" and character not in animatronics_at_right_door:
 		animatronics_at_right_door.append(character)
+		# Mark as not revealed yet
+		right_door_revealed[character] = false
 		print("[DoorManager] Registered", character, "at right door")
 		_update_door_indicators()
 
@@ -170,10 +194,14 @@ func unregister_animatronic_at_door(character: String, side: String) -> void:
 	# Called by AI when animatronic leaves door
 	if side == "left" and character in animatronics_at_left_door:
 		animatronics_at_left_door.erase(character)
+		# Clear revealed status so sound plays again if they return
+		left_door_revealed.erase(character)
 		print("[DoorManager] Unregistered", character, "from left door")
 		_update_door_indicators()
 	elif side == "right" and character in animatronics_at_right_door:
 		animatronics_at_right_door.erase(character)
+		# Clear revealed status
+		right_door_revealed.erase(character)
 		print("[DoorManager] Unregistered", character, "from right door")
 		_update_door_indicators()
 
@@ -285,6 +313,30 @@ func _update_door_indicators_legacy() -> void:
 				print("[DoorManager] TKJ seen at right door | Door closed:", right_door_closed)
 		else:
 			tkj_indicator.visible = false
+
+func _play_door_reveal_sound(character: String, side: String) -> void:
+	"""Play sound when animatronic is first revealed at door"""
+	var sound_to_play: AudioStream = null
+	
+	# Try to get character-specific sound from dictionary
+	if door_reveal_sounds.has(character):
+		sound_to_play = door_reveal_sounds[character]
+	else:
+		# Use default reveal sound if available
+		sound_to_play = default_reveal_sound
+	
+	if sound_to_play:
+		# Create temporary audio player
+		var reveal_player = AudioStreamPlayer.new()
+		reveal_player.stream = sound_to_play
+		reveal_player.volume_db = reveal_sound_volume
+		add_child(reveal_player)
+		reveal_player.play()
+		reveal_player.finished.connect(func(): reveal_player.queue_free())
+		
+		print("[DoorManager] 🔊 Playing reveal sound for", character, "at", side, "door")
+	else:
+		print("[DoorManager] No reveal sound configured for", character)
 
 func _update_light_button_sprites() -> void:
 	# Update light button sprites based on light state

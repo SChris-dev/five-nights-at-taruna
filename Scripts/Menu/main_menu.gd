@@ -20,11 +20,23 @@ var is_transitioning: bool = false
 var current_move_direction: int = 1  # 1 for right, -1 for left
 var move_tween: Tween
 
+@onready var audio_manager = $AudioManager
+
+# Title animation
+var title_float_tween: Tween
+@onready var title_logo = $TitleLogo if has_node("TitleLogo") else null
+
 func _ready() -> void:
 	# Update button states based on progress
 	_update_continue_button()
 	
 	_setup_background_rotation()
+	
+	# Setup title floating animation
+	_setup_title_float()
+	
+	# Setup button hover effects
+	_setup_button_hover_effects()
 
 func _setup_background_rotation() -> void:
 	# Create background nodes
@@ -155,22 +167,118 @@ func _update_continue_button() -> void:
 		$ContinueButton.disabled = GlobalData.nights_completed == 0
 
 func _on_new_game_pressed() -> void:
+	audio_manager.play_button_click_sound()
 	GlobalData.start_night(1, false)
 	get_tree().change_scene_to_file("res://Scenes/Menu/game_intro.tscn")
 
 func _on_continue_pressed() -> void:
 	# Continue from last completed night + 1
+	audio_manager.play_button_click_sound()
 	var next_night = min(GlobalData.nights_completed + 1, 6)
 	GlobalData.start_night(next_night, false)
 	get_tree().change_scene_to_file("res://Scenes/Menu/night_intro.tscn")
 
 func _on_custom_night_pressed() -> void:
 	# Only available after beating Night 6
+	audio_manager.play_button_click_sound()
 	if GlobalData.nights_completed >= 6:
 		get_tree().change_scene_to_file("res://Scenes/Menu/custom_night.tscn")
 
 func _on_night_select_pressed() -> void:
+	audio_manager.play_button_click_sound()
 	get_tree().change_scene_to_file("res://Scenes/Menu/night_select.tscn")
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+# ===== TITLE FLOATING ANIMATION =====
+
+func _setup_title_float() -> void:
+	"""Setup subtle floating animation for title"""
+	if not title_logo:
+		return
+	
+	# Store original position
+	var original_y = title_logo.position.y
+	
+	# Create looping float animation
+	title_float_tween = create_tween()
+	title_float_tween.set_loops()  # Loop forever
+	title_float_tween.set_ease(Tween.EASE_IN_OUT)
+	title_float_tween.set_trans(Tween.TRANS_SINE)
+	
+	# Float up and down (20 pixels total movement)
+	title_float_tween.tween_property(title_logo, "position:y", original_y - 10, 2.0)
+	title_float_tween.tween_property(title_logo, "position:y", original_y + 10, 2.0)
+
+# ===== BUTTON HOVER EFFECTS =====
+
+func _setup_button_hover_effects() -> void:
+	"""Setup hover effects for all buttons"""
+	_connect_button_hover("NewGameButton")
+	_connect_button_hover("ContinueButton")
+	_connect_button_hover("SelectNightButton")
+	_connect_button_hover("CustomNightButton")
+	_connect_button_hover("SettingsButton")
+	_connect_button_hover("ResetButton")
+
+func _connect_button_hover(button_name: String) -> void:
+	"""Connect hover signals to a button"""
+	if has_node(button_name):
+		var button = get_node(button_name)
+		button.mouse_entered.connect(_on_button_hover.bind(button, true))
+		button.mouse_exited.connect(_on_button_hover.bind(button, false))
+
+func _on_button_hover(button: Control, is_hovering: bool) -> void:
+	"""Handle button hover effect (scale and brightness)"""
+	var target_scale = Vector2(1.05, 1.05) if is_hovering else Vector2(1.0, 1.0)
+	var target_modulate = Color(1.2, 1.2, 1.2, 1.0) if is_hovering else Color(1.0, 1.0, 1.0, 1.0)
+	
+	# Play hover sound
+	if is_hovering and audio_manager:
+		audio_manager.play_button_hover_sound()
+	
+	# Animate scale and brightness
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(button, "scale", target_scale, 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(button, "modulate", target_modulate, 0.2)
+
+# ===== SETTINGS & RESET =====
+
+func _on_settings_pressed() -> void:
+	"""Open settings menu"""
+	audio_manager.play_button_click_sound()
+	# TODO: Open settings popup/scene
+	print("[MainMenu] Settings button pressed - TODO: Implement settings menu")
+
+func _on_reset_pressed() -> void:
+	"""Reset game progress with confirmation"""
+	audio_manager.play_button_click_sound()
+	# TODO: Show confirmation dialog
+	print("[MainMenu] Reset button pressed - TODO: Implement confirmation dialog")
+	_show_reset_confirmation()
+
+func _show_reset_confirmation() -> void:
+	"""Show confirmation dialog for reset"""
+	var dialog = AcceptDialog.new()
+	dialog.dialog_text = "Are you sure you want to reset ALL progress?\nThis cannot be undone!"
+	dialog.title = "Reset Progress"
+	dialog.ok_button_text = "Yes, Reset"
+	dialog.cancel_button_text = "Cancel"
+	
+	# Add cancel button
+	dialog.add_cancel_button("Cancel")
+	
+	# Connect signals
+	dialog.confirmed.connect(_reset_game_data)
+	dialog.canceled.connect(func(): dialog.queue_free())
+	
+	add_child(dialog)
+	dialog.popup_centered()
+
+func _reset_game_data() -> void:
+	"""Actually reset the game data"""
+	GlobalData.reset_progress()
+	_update_continue_button()
+	print("[MainMenu] Game progress reset!")

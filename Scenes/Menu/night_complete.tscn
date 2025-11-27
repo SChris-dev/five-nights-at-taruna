@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://csbo138bjq2ok"]
+[gd_scene load_steps=7 format=3 uid="uid://csbo138bjq2ok"]
 
 [ext_resource type="Script" uid="uid://wsqj5oyxwav1" path="res://Scripts/Menu/night_complete.gd" id="1_l6pl0"]
 [ext_resource type="Texture2D" uid="uid://d3kxtnwc4vcab" path="res://Graphics/Menu/paycheck_placeholder.jpg" id="2_515xn"]
+[ext_resource type="FontFile" uid="uid://bfrhphr3nf0vm" path="res://Graphics/Fonts/DeterminationMonoWebRegular-Z5oq.ttf" id="3_515xn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_81f6j"]
 font_size = 60
@@ -38,23 +39,26 @@ offset_left = 1356.0
 offset_top = 839.0
 offset_right = 1862.0
 offset_bottom = 922.0
+theme_override_fonts/font = ExtResource("3_515xn")
 text = "Night X Complete"
 label_settings = SubResource("LabelSettings_81f6j")
 
 [node name="AmountLabel" type="Label" parent="PaycheckPanel"]
 layout_mode = 0
-offset_left = 1428.0
-offset_top = 922.0
-offset_right = 1868.0
-offset_bottom = 1032.0
+offset_left = 1397.0
+offset_top = 917.0
+offset_right = 1837.0
+offset_bottom = 1027.0
+theme_override_fonts/font = ExtResource("3_515xn")
 text = "Rp. 100.000"
 label_settings = SubResource("LabelSettings_6xju3")
 
 [node name="SixAMLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 870.0
-offset_top = 455.0
-offset_right = 1087.0
-offset_bottom = 579.0
-text = "6 AM"
+offset_left = 775.0
+offset_top = 483.0
+offset_right = 1180.0
+offset_bottom = 607.0
+theme_override_fonts/font = ExtResource("3_515xn")
+text = "06:00 WIB"
 label_settings = SubResource("LabelSettings_kytye")

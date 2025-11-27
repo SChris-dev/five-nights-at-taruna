@@ -17,6 +17,15 @@ var extra_drain_rate: float = 0.5  # Calculated based on AI level
 var last_ai_level: int = -1  # Track AI level changes
 
 @export var power_manager: Node  # Reference to PowerManager
+@export var audio_manager: Node  # Reference to AudioManager
+@export var hud_labels: Node  # Reference to HUD Labels for visual feedback
+
+# Audio settings
+@export var drain_alert_sound: AudioStream  # Alert sound when drain starts
+@export var drain_loop_sound: AudioStream  # Optional looping sound while draining
+
+# Audio player reference to stop sound
+var alert_player: AudioStreamPlayer = null
 
 func _ready() -> void:
 	current_room = ROOM_07
@@ -83,8 +92,39 @@ func _start_draining() -> void:
 	is_draining = true
 	emit_signal("power_drain_active")
 	
-	# TODO: Show warning indicator
-	print("TKJ Drainer is draining power! Fix it quickly!")
+	print("[TKJDrainer] ⚡ DRAINING POWER!")
+	
+	# Play alert audio
+	_play_drain_alert()
+	
+	# Start visual feedback (flicker power label)
+	if hud_labels and hud_labels.has_method("start_power_flicker"):
+		hud_labels.start_power_flicker()
+
+func _play_drain_alert() -> void:
+	"""Play audio alert when drain starts (looping)"""
+	if drain_alert_sound:
+		# Stop previous alert if still playing
+		if alert_player and alert_player.playing:
+			alert_player.stop()
+			alert_player.queue_free()
+		
+		# Create new looping alert player
+		alert_player = AudioStreamPlayer.new()
+		alert_player.stream = drain_alert_sound
+		alert_player.volume_db = -5.0
+		
+		# Set to loop if audio format supports it
+		if drain_alert_sound is AudioStreamWAV:
+			drain_alert_sound.loop_mode = AudioStreamWAV.LOOP_FORWARD
+		elif drain_alert_sound is AudioStreamOggVorbis:
+			drain_alert_sound.loop = true
+		
+		add_child(alert_player)
+		alert_player.play()
+		print("[TKJDrainer] Playing drain alert sound (looping)")
+	else:
+		print("[TKJDrainer] No alert sound configured")
 
 func fix_power_drain() -> void:
 	# Called when player clicks fix button on ROOM_07 camera
@@ -94,7 +134,18 @@ func fix_power_drain() -> void:
 		drain_timer = drain_interval
 		emit_signal("power_drain_stopped")
 		
-		print("[TKJDrainer] Power drain fixed! Next drain in:", drain_interval, "seconds")
+		# Stop alert sound
+		if alert_player and alert_player.playing:
+			alert_player.stop()
+			alert_player.queue_free()
+			alert_player = null
+			print("[TKJDrainer] Alert sound stopped")
+		
+		# Stop visual feedback
+		if hud_labels and hud_labels.has_method("stop_power_flicker"):
+			hud_labels.stop_power_flicker()
+		
+		print("[TKJDrainer] ✅ Power drain fixed! Next drain in:", drain_interval, "seconds")
 
 func get_drain_status() -> bool:
 	return is_draining

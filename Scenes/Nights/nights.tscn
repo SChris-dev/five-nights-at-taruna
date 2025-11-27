@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=3 uid="uid://cthhku8fsrdeq"]
+[gd_scene load_steps=137 format=3 uid="uid://cthhku8fsrdeq"]
 
 [ext_resource type="Script" uid="uid://babox67oh2xx3" path="res://Scripts/Nights/Office/office_manager.gd" id="1_pp75g"]
 [ext_resource type="Texture2D" uid="uid://dsvw0bk5c36ue" path="res://Graphics/Office/office_complete.png" id="2_risgj"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://bbo5n8erp2chg" path="res://Graphics/CamRooms/Cam_2/New Piskel (18).png" id="15_risgj"]
 [ext_resource type="Texture2D" uid="uid://by3axrhf1aywr" path="res://Graphics/HUD/cam_buttons_new.png" id="16_2lb4s"]
 [ext_resource type="Texture2D" uid="uid://c0d0jmshu18hk" path="res://Graphics/Static/static_anim.png" id="16_mcq0v"]
+[ext_resource type="AudioStream" uid="uid://cxoud7obx6xhs" path="res://SFX/Office/monster-vinnie-jumpscares-sound.mp3" id="17_5aa6o"]
 [ext_resource type="Script" uid="uid://djxif588eqlw8" path="res://Scripts/Nights/Camera/camera_fix_button.gd" id="17_2123g"]
 [ext_resource type="Texture2D" uid="uid://ccxxchvq14cit" path="res://Graphics/CamRooms/Cam_4/New Piskel (17).png" id="17_risgj"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://siq8sv1mpgct" path="res://AnimationTree/animtree_camera.tres" id="18_itk3u"]
@@ -61,13 +62,28 @@
 [ext_resource type="Resource" uid="uid://b0kkctuye7fl0" path="res://Scripts/Nights/tkj_jumpscare_config.tres" id="48_e4mjh"]
 [ext_resource type="Script" uid="uid://cpiv0ys8l4rrb" path="res://Scripts/Nights/audio_manager.gd" id="49_qygx1"]
 [ext_resource type="AudioStream" uid="uid://c5w7ukgyrsg5x" path="res://SFX/Office/door-slamming-fnaf-1-sound-effects.mp3" id="50_giv46"]
+[ext_resource type="AudioStream" uid="uid://bx3osdf0bkmr6" path="res://SFX/Ambience/fnaf-ambience-extended_trim.mp3" id="50_pdmxf"]
 [ext_resource type="AudioStream" uid="uid://dgoixh4lbf0lt" path="res://SFX/Office/fnaf-light-sound.mp3" id="51_1gv32"]
+[ext_resource type="AudioStream" uid="uid://durkbok3wjk2b" path="res://SFX/Ambience/fnaf3-ambience.mp3" id="51_sysrt"]
 [ext_resource type="AudioStream" uid="uid://dumsdljolly8f" path="res://SFX/Camera/fnaf-open-camera-sound.mp3" id="52_lfuya"]
 [ext_resource type="Script" uid="uid://dwj3hqognxces" path="res://Scripts/Nights/power_out_sequence.gd" id="53_8y2y3"]
+[ext_resource type="AudioStream" uid="uid://c0ymea87hyhj2" path="res://SFX/Ambience/creepy-and-unsettling-soundd.mp3" id="53_judg0"]
 [ext_resource type="AudioStream" uid="uid://bfgvk3ib64g2w" path="res://SFX/Camera/fnaf2-camera.mp3" id="53_oy24g"]
+[ext_resource type="AudioStream" uid="uid://id1f8kgnaqw7" path="res://SFX/Camera/FNAF_ Monitor Pulled Up - Gaming Sound Effect (HD).mp3" id="54_lk37x"]
+[ext_resource type="AudioStream" uid="uid://dqb007qvu0060" path="res://SFX/Office/votv-power-outage_Gn5Y3eA.mp3" id="54_oy24g"]
 [ext_resource type="Script" uid="uid://5d1dhgkd3ium" path="res://tmp_rovodev_test_jumpscare.gd" id="54_uho0t"]
+[ext_resource type="AudioStream" uid="uid://cxgosqmcl0bd5" path="res://SFX/Ambience/backrooms-ambience.mp3" id="54_wywhs"]
+[ext_resource type="AudioStream" uid="uid://ducq0k35h4j7n" path="res://SFX/Jumpscares/fnaf-1-music-box.mp3" id="55_6ixi8"]
 [ext_resource type="FontFile" uid="uid://bfrhphr3nf0vm" path="res://Graphics/Fonts/DeterminationMonoWebRegular-Z5oq.ttf" id="55_x7bti"]
 [ext_resource type="Script" uid="uid://dmm0sljt16bu2" path="res://tmp_rovodev_test_powerout.gd" id="59_jdwom"]
+[ext_resource type="AudioStream" uid="uid://d3s6ojjamffuh" path="res://SFX/Passives/seek-running-sfx-but-a-little-longer.mp3" id="63_h3506"]
+[ext_resource type="AudioStream" uid="uid://dgad1f8ffihhc" path="res://SFX/Passives/flightreacts-banging-door-sound-effect.mp3" id="64_rwly4"]
+[ext_resource type="AudioStream" uid="uid://d0axnku5ws671" path="res://SFX/Passives/manglestatic3_converted.mp3" id="65_ive0k"]
+[ext_resource type="AudioStream" uid="uid://70nrxyryv7fm" path="res://SFX/Passives/153b-robot-step-sounds-short.mp3" id="66_ejhkm"]
+[ext_resource type="AudioStream" uid="uid://mtjkddo2d8pw" path="res://SFX/Passives/atst-walking.mp3" id="67_5aa6o"]
+[ext_resource type="AudioStream" uid="uid://cctqhvy8up1vf" path="res://SFX/Passives/chara-creepy-sound.mp3" id="67_xrl27"]
+[ext_resource type="AudioStream" uid="uid://ph1wgoknrwm1" path="res://SFX/Victory/tm12.mp3" id="78_pc2cl"]
+[ext_resource type="AudioStream" uid="uid://dr6upf7it7jed" path="res://SFX/Victory/fnaf-cheer-lolz.mp3" id="79_difc2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0qos"]
 size = Vector2(256, 256)
@@ -479,6 +495,14 @@ _data = {
 &"static_idle": SubResource("Animation_06ke1")
 }
 
+[sub_resource type="Gradient" id="Gradient_sysrt"]
+colors = PackedColorArray(1, 1, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lk37x"]
+gradient = SubResource("Gradient_sysrt")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kco4d"]
 shader = ExtResource("20_obh0f")
 shader_parameter/fov = 0.32
@@ -657,6 +681,7 @@ hud = NodePath("../../../HUD")
 ai_manager = NodePath("../../../CharacterAI")
 door_graphics = NodePath("../DoorSprites")
 door_indicator_graphics = NodePath("../DoorIndicatorGraphics")
+default_reveal_sound = ExtResource("17_5aa6o")
 
 [node name="LeftDoorIndicators" type="Node2D" parent="OfficeElements/Office/DoorAndLight"]
 position = Vector2(200, 400)
@@ -1062,14 +1087,26 @@ jumpscare_configs = Array[ExtResource("41_fyeqi")]([ExtResource("42_fyeqi"), Ext
 
 [node name="AudioManager" type="Node" parent="."]
 script = ExtResource("49_qygx1")
+ambient_sounds = Array[AudioStream]([ExtResource("50_pdmxf"), ExtResource("51_sysrt"), ExtResource("50_pdmxf"), ExtResource("53_judg0"), ExtResource("54_wywhs")])
 sound_door_toggle = ExtResource("50_giv46")
 sound_light_toggle = ExtResource("51_1gv32")
-sound_camera_open = ExtResource("52_lfuya")
+sound_camera_open = ExtResource("54_lk37x")
+sound_camera_close = ExtResource("52_lfuya")
 sound_camera_switch = ExtResource("53_oy24g")
+sound_button_click = ExtResource("53_oy24g")
+sound_power_out = ExtResource("54_oy24g")
+sound_freddy_music_box = ExtResource("55_6ixi8")
+power_out_volume = 5.0
 
 [node name="CharacterAI" type="Node" parent="."]
 script = ExtResource("19_nqdqv")
 use_manual_levels = true
+inst_level = 10
+tkj_roamer_level = 10
+tkr_sprinter_level = 10
+big_robot_level = 10
+rpl_disruptor_level = 10
+tkj_drainer_level = 10
 
 [node name="INSTAnomaly" type="Node" parent="CharacterAI" node_paths=PackedStringArray("camera", "office_manager", "jumpscare_manager")]
 script = ExtResource("26_1ojnv")
@@ -1091,8 +1128,11 @@ office_manager = NodePath("../../OfficeElements")
 wait_time = 5.0
 autostart = true
 
-[node name="TKRSprinter" type="Node" parent="CharacterAI" node_paths=PackedStringArray("camera", "office_manager", "jumpscare_manager")]
+[node name="TKRSprinter" type="Node" parent="CharacterAI" node_paths=PackedStringArray("audio_manager", "camera", "office_manager", "jumpscare_manager")]
 script = ExtResource("29_6h7ju")
+audio_manager = NodePath("../../AudioManager")
+sprint_sound = ExtResource("63_h3506")
+door_bang_sound = ExtResource("64_rwly4")
 character = 2
 camera = NodePath("../../CameraElements")
 office_manager = NodePath("../../OfficeElements")
@@ -1104,6 +1144,7 @@ autostart = true
 
 [node name="BigRobot" type="Node" parent="CharacterAI" node_paths=PackedStringArray("camera", "office_manager", "jumpscare_manager")]
 script = ExtResource("30_vdbya")
+movement_sounds = Array[AudioStream]([ExtResource("66_ejhkm"), ExtResource("67_5aa6o")])
 character = 3
 camera = NodePath("../../CameraElements")
 office_manager = NodePath("../../OfficeElements")
@@ -1113,15 +1154,21 @@ jumpscare_manager = NodePath("../../JumpscareManager")
 wait_time = 8.0
 autostart = true
 
-[node name="RPLDisruptor" type="Node" parent="CharacterAI" node_paths=PackedStringArray("camera_manager", "camera")]
+[node name="RPLDisruptor" type="Node" parent="CharacterAI" node_paths=PackedStringArray("camera_manager", "audio_manager", "camera")]
 script = ExtResource("31_khy4v")
 camera_manager = NodePath("../../CameraElements")
+audio_manager = NodePath("../../AudioManager")
+alert_sound = ExtResource("65_ive0k")
 character = 4
 camera = NodePath("../../CameraElements")
 
-[node name="TKJDrainer" type="Node" parent="CharacterAI" node_paths=PackedStringArray("power_manager", "camera")]
+[node name="TKJDrainer" type="Node" parent="CharacterAI" node_paths=PackedStringArray("power_manager", "audio_manager", "hud_labels", "camera")]
 script = ExtResource("32_h28ug")
 power_manager = NodePath("../../PowerManager")
+audio_manager = NodePath("../../AudioManager")
+hud_labels = NodePath("../../HUD")
+drain_alert_sound = ExtResource("67_xrl27")
+drain_loop_sound = ExtResource("67_xrl27")
 character = 5
 camera = NodePath("../../CameraElements")
 
@@ -1132,6 +1179,9 @@ power_out_sequence = NodePath("../PowerOutSequence")
 
 [node name="PowerOutSequence" type="Node" parent="."]
 script = ExtResource("53_8y2y3")
+eye_texture = SubResource("GradientTexture2D_lk37x")
+eye_position = Vector2(150, 350)
+eye_scale = 2.0
 office_manager_path = NodePath("../OfficeElements")
 tablet_manager_path = NodePath("../TabletElements")
 ai_manager_path = NodePath("../CharacterAI")
@@ -1141,8 +1191,17 @@ door_manager_path = NodePath("../OfficeElements/Office/DoorAndLight")
 hud_path = NodePath("../HUD")
 door_graphics_path = NodePath("../OfficeElements/Office/DoorSprites")
 
-[node name="NightTimer" type="Node" parent="."]
+[node name="NightTimer" type="Node" parent="." node_paths=PackedStringArray("office_manager", "tablet_manager")]
 script = ExtResource("23_timer")
+bell_chime_sound = ExtResource("78_pc2cl")
+cheer_sound = ExtResource("79_difc2")
+cheer_delay = 2.0
+fade_out_duration = 3.0
+fade_in_duration = 2.0
+wait_after_sounds = 2.0
+time_text_font = ExtResource("55_x7bti")
+office_manager = NodePath("../OfficeElements")
+tablet_manager = NodePath("../TabletElements")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("24_hud")

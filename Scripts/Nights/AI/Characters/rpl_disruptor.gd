@@ -15,6 +15,14 @@ var is_disrupted: bool = false
 var last_ai_level: int = -1  # Track AI level changes
 
 @export var camera_manager: Node  # Reference to CameraElements
+@export var audio_manager: Node  # Reference to AudioManager
+
+# Audio settings
+@export var disruption_sound: AudioStream  # Sound when cameras get disrupted
+@export var alert_sound: AudioStream  # Alert/warning sound
+
+# Audio player reference to stop sound
+var alert_player: AudioStreamPlayer = null
 
 func _ready() -> void:
 	current_room = ROOM_06
@@ -79,11 +87,45 @@ func _disrupt_camera() -> void:
 	
 	print("[RPLDisruptor] 🔴 DISRUPTING CAMERAS!")
 	
+	# Play disruption audio
+	_play_disruption_audio()
+	
 	# Apply heavy static to all cameras (except Room 6)
 	if camera_manager and camera_manager.has_method("apply_disruption"):
 		camera_manager.apply_disruption()
 	else:
 		print("[RPLDisruptor] ❌ ERROR: Camera manager missing or no apply_disruption method!")
+
+func _play_disruption_audio() -> void:
+	"""Play audio alert when disruption happens"""
+	if audio_manager:
+		# Play static sound from audio manager
+		if audio_manager.has_method("play_static_sound"):
+			audio_manager.play_static_sound()
+		
+		# Play custom alert sound if configured (looping)
+		if alert_sound:
+			# Stop previous alert if still playing
+			if alert_player and alert_player.playing:
+				alert_player.stop()
+				alert_player.queue_free()
+			
+			# Create new looping alert player
+			alert_player = AudioStreamPlayer.new()
+			alert_player.stream = alert_sound
+			alert_player.volume_db = -5.0
+			
+			# Set to loop if audio format supports it
+			if alert_sound is AudioStreamWAV:
+				alert_sound.loop_mode = AudioStreamWAV.LOOP_FORWARD
+			elif alert_sound is AudioStreamOggVorbis:
+				alert_sound.loop = true
+			
+			add_child(alert_player)
+			alert_player.play()
+			print("[RPLDisruptor] Playing alert sound (looping)")
+	else:
+		print("[RPLDisruptor] No audio manager found")
 
 func fix_camera() -> void:
 	# Called when player clicks fix button on ROOM_06 camera
@@ -92,6 +134,13 @@ func fix_camera() -> void:
 		_calculate_interval()  # Recalculate in case AI level changed
 		disruption_timer = disruption_interval
 		emit_signal("camera_fixed")
+		
+		# Stop alert sound
+		if alert_player and alert_player.playing:
+			alert_player.stop()
+			alert_player.queue_free()
+			alert_player = null
+			print("[RPLDisruptor] Alert sound stopped")
 		
 		print("[RPLDisruptor] ✅ Cameras fixed! Next disruption in:", disruption_interval, "seconds")
 		

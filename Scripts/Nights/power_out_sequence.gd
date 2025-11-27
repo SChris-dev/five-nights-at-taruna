@@ -16,9 +16,11 @@ signal sequence_ended
 @export_group("Visual Settings")
 @export var darkness_overlay_color: Color = Color(0, 0, 0, 0.9)  # Almost black
 @export var eye_glow_color: Color = Color(1, 0.8, 0.2, 1.0)  # Yellow/orange glow
-@export var eye_position: Vector2 = Vector2(400, 300)  # Position of glowing eyes
+@export var eye_texture: Texture2D  # Texture for the glowing eyes (IMPORTANT: Assign this!)
+@export var eye_position: Vector2 = Vector2(1500, 600)  # Position relative to office (office is 3000x1500, center of left door area)
 @export var eye_scale: float = 1.0  # Scale of eye sprite
 @export var show_eyes: bool = true  # Show glowing eyes during sequence
+@export var attach_eyes_to_office: bool = true  # Eyes move with office scrolling
 
 @export_group("Node References")
 @export var office_manager_path: NodePath
@@ -30,6 +32,7 @@ signal sequence_ended
 @export var hud_path: NodePath
 @export var door_graphics_path: NodePath  # For visual door/light control
 
+@onready var audio_manager = get_node("/root/Nights/AudioManager")
 var office_manager: Node
 var tablet_manager: Node
 var ai_manager: Node
@@ -70,11 +73,35 @@ func _ready() -> void:
 	eye_sprite = Sprite2D.new()
 	eye_sprite.modulate = eye_glow_color
 	eye_sprite.scale = Vector2(eye_scale, eye_scale)
-	eye_sprite.position = eye_position
 	eye_sprite.visible = false
 	eye_sprite.z_index = 101  # Above darkness
-	# Note: Set texture externally or via export
-	darkness_overlay.add_child(eye_sprite)
+	
+	# Set texture if provided
+	if eye_texture:
+		eye_sprite.texture = eye_texture
+		print("[PowerOutSequence] Eye texture assigned:", eye_texture.resource_path)
+	else:
+		print("[PowerOutSequence] WARNING: No eye texture assigned! Eyes will not be visible!")
+		# Create a simple fallback - two white circles
+		_create_fallback_eyes()
+	
+	# Attach eyes to office sprite so they move with scrolling
+	if attach_eyes_to_office and office_manager:
+		var office_sprite = office_manager.get_node_or_null("Office")
+		if office_sprite:
+			office_sprite.add_child(eye_sprite)
+			eye_sprite.position = eye_position
+			print("[PowerOutSequence] Eyes attached to office - will move with scrolling")
+		else:
+			# Fallback: attach to darkness overlay
+			darkness_overlay.add_child(eye_sprite)
+			eye_sprite.position = eye_position
+			print("[PowerOutSequence] Warning: Could not find Office node, eyes attached to overlay")
+	else:
+		# Attach to darkness overlay (fixed position)
+		darkness_overlay.add_child(eye_sprite)
+		eye_sprite.position = eye_position
+		print("[PowerOutSequence] Eyes attached to overlay - fixed position")
 	
 	# Create audio player
 	audio_player = AudioStreamPlayer.new()
@@ -91,6 +118,8 @@ func start_sequence() -> void:
 	print("[PowerOutSequence] 💀 Power out! Starting sequence...")
 	is_sequence_active = true
 	emit_signal("sequence_started")
+	audio_manager.play_power_out_sequence()
+	audio_manager.play_light_off_sound()
 	
 	# Close all doors and turn off all lights
 	_close_doors_and_lights()
@@ -292,10 +321,36 @@ func _restore_ui() -> void:
 	if hud:
 		hud.visible = true
 
+func _create_fallback_eyes() -> void:
+	"""Create simple fallback eyes if no texture is provided"""
+	print("[PowerOutSequence] Creating fallback eye visual...")
+	
+	# Create a simple texture using a circle
+	var image = Image.create(128, 64, false, Image.FORMAT_RGBA8)
+	image.fill(Color(0, 0, 0, 0))  # Transparent background
+	
+	# Draw two circles for eyes (simple fallback)
+	for x in range(128):
+		for y in range(64):
+			# Left eye (centered at 32, 32)
+			var dist_left = Vector2(x - 32, y - 32).length()
+			if dist_left < 10:
+				image.set_pixel(x, y, eye_glow_color)
+			
+			# Right eye (centered at 96, 32)
+			var dist_right = Vector2(x - 96, y - 32).length()
+			if dist_right < 10:
+				image.set_pixel(x, y, eye_glow_color)
+	
+	var texture = ImageTexture.create_from_image(image)
+	eye_sprite.texture = texture
+	print("[PowerOutSequence] Fallback eyes created")
+
 # Public method to set eye texture
 func set_eye_texture(texture: Texture2D) -> void:
 	if eye_sprite:
 		eye_sprite.texture = texture
+		eye_texture = texture
 
 # Public method to update eye position
 func set_eye_position(pos: Vector2) -> void:

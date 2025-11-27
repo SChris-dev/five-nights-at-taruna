@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://eptku71b53ae"]
+
+[ext_resource type="Script" uid="uid://b5cw3miksq714" path="res://Scripts/Menu/night_select.gd" id="1_av3hj"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_av3hj")
+
+[node name="NightButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 109.0
+offset_right = 174.0
+offset_bottom = 140.0
+text = "night 1"
+
+[node name="NightButton2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 109.0
+offset_right = 367.0
+offset_bottom = 140.0
+text = "night 2"
+
+[node name="NightButton3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 485.0
+offset_top = 115.0
+offset_right = 547.0
+offset_bottom = 146.0
+text = "night 3"
+
+[node name="NightButton4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 652.0
+offset_top = 117.0
+offset_right = 714.0
+offset_bottom = 148.0
+text = "night 4"
+
+[node name="NightButton5" type="Button" parent="."]
+layout_mode = 0
+offset_left = 813.0
+offset_top = 117.0
+offset_right = 875.0
+offset_bottom = 148.0
+text = "night 5"
+
+[node name="NightButton6" type="Button" parent="."]
+layout_mode = 0
+offset_left = 976.0
+offset_top = 113.0
+offset_right = 1038.0
+offset_bottom = 144.0
+text = "night 6"
+
+[connection signal="pressed" from="NightButton" to="." method="_on_night_button_pressed" binds= [1]]
+[connection signal="pressed" from="NightButton2" to="." method="_on_night_button_pressed" binds= [2]]
+[connection signal="pressed" from="NightButton3" to="." method="_on_night_button_pressed" binds= [3]]
+[connection signal="pressed" from="NightButton4" to="." method="_on_night_button_pressed" binds= [4]]
+[connection signal="pressed" from="NightButton5" to="." method="_on_night_button_pressed" binds= [5]]
+[connection signal="pressed" from="NightButton6" to="." method="_on_night_button_pressed" binds= [6]]

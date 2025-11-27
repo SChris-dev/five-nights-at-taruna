@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="JumpscareConfig" load_steps=14 format=3 uid="uid://b0kkctuye7fl0"]
+[gd_resource type="Resource" script_class="JumpscareConfig" load_steps=15 format=3 uid="uid://b0kkctuye7fl0"]
 
 [ext_resource type="Script" uid="uid://dwoqcn6w0recw" path="res://Scripts/Nights/jumpscare_config.gd" id="1_27d6g"]
+[ext_resource type="AudioStream" uid="uid://d3ri710u0lgne" path="res://SFX/Jumpscares/jolly-robotic-life-2-0-jumpscare-sound-1.mp3" id="1_fbs7l"]
 [ext_resource type="Texture2D" uid="uid://bryoa07y3535e" path="res://Graphics/Jumpscares/tkj_jumpscare.png" id="2_fbs7l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wgkdy"]
@@ -86,3 +87,5 @@ script = ExtResource("1_27d6g")
 character_name = "TKJRoamer"
 use_animated_sprite = true
 sprite_frames = SubResource("SpriteFrames_gvkxi")
+jumpscare_sound = ExtResource("1_fbs7l")
+sound_volume_db = 10.0

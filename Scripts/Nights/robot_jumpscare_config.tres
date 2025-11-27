@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="JumpscareConfig" load_steps=14 format=3 uid="uid://e7sxiynfag60"]
+[gd_resource type="Resource" script_class="JumpscareConfig" load_steps=15 format=3 uid="uid://e7sxiynfag60"]
 
+[ext_resource type="AudioStream" uid="uid://uqsbd5wxxm0i" path="res://SFX/Jumpscares/fnati-the-revenge-jumpscare-sound-7.mp3" id="1_brpb3"]
 [ext_resource type="Script" uid="uid://dwoqcn6w0recw" path="res://Scripts/Nights/jumpscare_config.gd" id="1_ki6af"]
 [ext_resource type="Texture2D" uid="uid://b7k5xhw0cifte" path="res://Graphics/Jumpscares/big_robot_jumpscare.png" id="2_brpb3"]
 
@@ -86,3 +87,5 @@ script = ExtResource("1_ki6af")
 character_name = "BigRobot"
 use_animated_sprite = true
 sprite_frames = SubResource("SpriteFrames_qicd5")
+jumpscare_sound = ExtResource("1_brpb3")
+sound_volume_db = 10.0
