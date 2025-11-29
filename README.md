@@ -32,12 +32,12 @@ Survive from 12 AM to 6 AM by tracking hostile entities through cameras, managin
 
 ### 🤖 AI & Entities
 - **6 Unique Threats** with distinct behavior patterns:
-  - **Big Robot** - Power-draining roamer
-  - **INST** - Persistent hallway stalker
-  - **TKJ (Tukang Jempol)** - Door-watching roamer
-  - **TKR (Tukang Rokok)** - Aggressive sprinter
-  - **Foxy/RPL Disruptor** - Camera system saboteur
-  - **Green (Freddy)** - Strategic hunter
+  - **(INST) Traffic Light Bot** - Persistent hallway stalker
+  - **(TKJ) Patrol Bot** - Door-watching roamer
+  - **(TKR) Samurai Fighter Bot** - Aggressive sprinter
+  - **(TPM/LAS) Junk Bot** - Power-draining roamer
+  - **(RPL) P.I.P.P.Y** - Camera system saboteur
+  - **(TKJ) Power Bot** - Power drainer
 - Advanced pathfinding through 13 interconnected rooms
 - Dynamic difficulty scaling across 6 nights + Custom Night
 
@@ -65,7 +65,7 @@ Survive from 12 AM to 6 AM by tracking hostile entities through cameras, managin
 ### Installation
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/five-nights-at-taruna.git
+   git clone https://github.com/SChris-dev/five-nights-at-taruna.git
    ```
 2. Open the project in Godot 4
 3. Run the main scene: `Scenes/Menu/main_menu.tscn`
@@ -92,20 +92,15 @@ Survive from 12 AM to 6 AM by tracking hostile entities through cameras, managin
 
 ---
 
-## 📚 Documentation
+## 📚 How to Play
 
-### For Players
-- **`QUICK_START.md`** - Basic gameplay guide
-- **`QUICK_REFERENCE.md`** - Controls and mechanics reference
-
-### For Developers
-- **`AI_BALANCE_GUIDE.md`** - AI behavior and difficulty tuning
-- **`AUDIO_MANAGER_GUIDE.md`** - Audio system documentation
-- **`PHONE_CALL_SYSTEM_GUIDE.md`** - Phone call implementation
-- **`NIGHT_SELECT_CAROUSEL_GUIDE.md`** - Night selection system
-- **`CUSTOM_NIGHT_GUIDE.md`** - Custom Night implementation
-- **`JUMPSCARE_SYSTEM_GUIDE.md`** - Jumpscare mechanics
-- **`QUICK_DEBUG.md`** - Debugging and troubleshooting
+### Basic Gameplay
+- **Monitor Cameras** - Use the tablet to track anomaly movements across 13 rooms
+- **Manage Power** - Keep an eye on your power usage - running out means game over
+- **Close Doors** - Block threats at your office doorways when they get close
+- **Use Lights** - Check hallways before opening doors to see if it's safe
+- **Fix Anomalies** - Click fix buttons when systems malfunction
+- **Survive Until 6 AM** - Make it through the night without getting caught!
 
 ---
 
@@ -199,7 +194,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact & Support
 
 - **Discord:** [Join our server](https://discord.gg/CHgH8KJyqE)
-- **Issues:** [GitHub Issues](https://github.com/yourusername/five-nights-at-taruna/issues)
+- **Issues:** [GitHub Issues](https://github.com/SChris-dev/five-nights-at-taruna/issues)
 
 ---
 
