@@ -25,7 +25,7 @@ func _setup_text() -> void:
 
 func _get_night_text() -> String:
 	if GlobalData.is_custom_night:
-		return "Custom Night"
+		return "Night 7"
 	
 	match GlobalData.current_night:
 		1: return "Night 1"
@@ -38,6 +38,9 @@ func _get_night_text() -> String:
 
 func _get_date_text() -> String:
 	# FNAF 1 style date strings
+	if GlobalData.is_custom_night:
+		return "00:00 WIB"
+	
 	match GlobalData.current_night:
 		1: return "00:00 WIB"
 		2: return "00:00 WIB"

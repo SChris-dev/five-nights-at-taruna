@@ -17,6 +17,9 @@ signal ambient_sound_played(sound_name: String)
 @export var phone_call_night_5: AudioStream
 @export var phone_call_night_6: AudioStream
 @export var phone_call_night_7: AudioStream
+@export var phone_ring_sound: AudioStream  # Phone ringing sound
+@export var phone_pickup_sound: AudioStream  # Phone pickup sound
+@export var phone_hangup_sound: AudioStream  # Phone hangup/putdown sound
 @export var phone_call_delay: float = 3.0  # Delay before phone call starts
 @export var phone_call_volume: float = 0.0  # dB
 
@@ -164,7 +167,23 @@ func _start_phone_call() -> void:
 		7: call_audio = phone_call_night_7
 	
 	if call_audio:
-		await get_tree().create_timer(phone_call_delay).timeout
+		# Play phone ringing sound first
+		if phone_ring_sound and ui_player:
+			ui_player.stream = phone_ring_sound
+			ui_player.play()
+			print("[AudioManager] Playing phone ring")
+			# Wait for ring to finish
+			await ui_player.finished
+		
+		# Play phone pickup sound
+		if phone_pickup_sound and ui_player:
+			ui_player.stream = phone_pickup_sound
+			ui_player.play()
+			print("[AudioManager] Playing phone pickup")
+			# Wait for pickup to finish
+			await ui_player.finished
+		
+		# Now play the actual phone call
 		play_phone_call(call_audio)
 	else:
 		print("[AudioManager] No phone call configured for night", night)
@@ -185,11 +204,25 @@ func stop_phone_call() -> void:
 	if phone_player and phone_player.playing:
 		phone_player.stop()
 		phone_call_playing = false
+		
+		# Play phone hangup sound when manually stopped (muted)
+		if phone_hangup_sound and ui_player:
+			ui_player.stream = phone_hangup_sound
+			ui_player.play()
+			print("[AudioManager] Playing phone hangup (muted)")
+		
 		emit_signal("phone_call_ended")
 		print("[AudioManager] Phone call stopped")
 
 func _on_phone_call_finished() -> void:
 	phone_call_playing = false
+	
+	# Play phone hangup sound
+	if phone_hangup_sound and ui_player:
+		ui_player.stream = phone_hangup_sound
+		ui_player.play()
+		print("[AudioManager] Playing phone hangup")
+	
 	emit_signal("phone_call_ended")
 	print("[AudioManager] Phone call finished")
 

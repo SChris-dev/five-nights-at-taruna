@@ -8,12 +8,12 @@ var max_night_unlocked: int = 1
 # AI difficulty presets for each night (Taruna style)
 # Character order: INSTAnomaly, TKJRoamer, TKRSprinter, BigRobot, RPLDisruptor, TKJDrainer
 var ai_presets: Dictionary = {
-	1: {"inst": 0, "tkj_roamer": 0, "tkr_sprinter": 0, "big_robot": 0, "rpl_disruptor": 0, "tkj_drainer": 0},  # Very easy start
-	2: {"inst": 0, "tkj_roamer": 3, "tkr_sprinter": 1, "big_robot": 1, "rpl_disruptor": 0, "tkj_drainer": 0},   # Gentle introduction
-	3: {"inst": 1, "tkj_roamer": 0, "tkr_sprinter": 5, "big_robot": 2, "rpl_disruptor": 3, "tkj_drainer": 3},   # TKR gets aggressive
-	4: {"inst": 1, "tkj_roamer": 2, "tkr_sprinter": 4, "big_robot": 6, "rpl_disruptor": 5, "tkj_drainer": 4},   # Multiple threats
-	5: {"inst": 3, "tkj_roamer": 5, "tkr_sprinter": 7, "big_robot": 5, "rpl_disruptor": 7, "tkj_drainer": 6},   # All become active
-	6: {"inst": 4, "tkj_roamer": 10, "tkr_sprinter": 12, "big_robot": 16, "rpl_disruptor": 12, "tkj_drainer": 10}, # Very aggressive
+	1: {"inst": 1, "tkj_roamer": 0, "tkr_sprinter": 0, "big_robot": 0, "rpl_disruptor": 0, "tkj_drainer": 0},  # Very easy start
+	2: {"inst": 3, "tkj_roamer": 3, "tkr_sprinter": 0, "big_robot": 0, "rpl_disruptor": 0, "tkj_drainer": 0},   # Gentle introduction
+	3: {"inst": 3, "tkj_roamer": 3, "tkr_sprinter": 5, "big_robot": 0, "rpl_disruptor": 3, "tkj_drainer": 0},   # TKR gets aggressive
+	4: {"inst": 5, "tkj_roamer": 5, "tkr_sprinter": 3, "big_robot": 0, "rpl_disruptor": 5, "tkj_drainer": 5},   # Multiple threats
+	5: {"inst": 10, "tkj_roamer": 10, "tkr_sprinter": 7, "big_robot": 5, "rpl_disruptor": 7, "tkj_drainer": 10},   # All become active
+	6: {"inst": 15, "tkj_roamer": 15, "tkr_sprinter": 12, "big_robot": 10, "rpl_disruptor": 12, "tkj_drainer": 10}, # Very aggressive
 	7: {"inst": 0, "tkj_roamer": 0, "tkr_sprinter": 0, "big_robot": 0, "rpl_disruptor": 0, "tkj_drainer": 0}     # Custom Night - set manually
 }
 
@@ -30,6 +30,10 @@ var custom_night_levels: Dictionary = {
 # Game state
 var is_custom_night: bool = false
 var game_over_reason: String = ""  # Which animatronic caused game over
+
+# Settings
+var subtitles_enabled: bool = true  # Subtitles on by default
+var continuous_nights: bool = false  # Continue to next night automatically
 
 # Save file path
 const SAVE_FILE_PATH: String = "user://fnaf_save.dat"
@@ -59,7 +63,9 @@ func game_over(reason: String = "") -> void:
 func save_progress() -> void:
 	var save_data: Dictionary = {
 		"nights_completed": nights_completed,
-		"max_night_unlocked": max_night_unlocked
+		"max_night_unlocked": max_night_unlocked,
+		"subtitles_enabled": subtitles_enabled,
+		"continuous_nights": continuous_nights
 	}
 	
 	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
@@ -77,6 +83,8 @@ func load_progress() -> void:
 		if save_data is Dictionary:
 			nights_completed = save_data.get("nights_completed", 0)
 			max_night_unlocked = save_data.get("max_night_unlocked", 1)
+			subtitles_enabled = save_data.get("subtitles_enabled", true)
+			continuous_nights = save_data.get("continuous_nights", false)
 		file.close()
 
 func reset_progress() -> void:

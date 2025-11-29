@@ -1,15 +1,13 @@
-[gd_scene load_steps=137 format=3 uid="uid://cthhku8fsrdeq"]
+[gd_scene load_steps=142 format=3 uid="uid://cthhku8fsrdeq"]
 
 [ext_resource type="Script" uid="uid://babox67oh2xx3" path="res://Scripts/Nights/Office/office_manager.gd" id="1_pp75g"]
 [ext_resource type="Texture2D" uid="uid://dsvw0bk5c36ue" path="res://Graphics/Office/office_complete.png" id="2_risgj"]
 [ext_resource type="Script" uid="uid://bencescb72ut2" path="res://Scripts/Nights/Office/office_scrolling.gd" id="3_ejiio"]
 [ext_resource type="Script" uid="uid://bwiiu33in6rx1" path="res://Scripts/Nights/Office/door_graphics_manager.gd" id="4_162og"]
-[ext_resource type="Texture2D" uid="uid://2hwki8rcehtm" path="res://icon.svg" id="4_lu3yo"]
 [ext_resource type="Texture2D" uid="uid://c0mk1t02x5xvj" path="res://Graphics/Office/doors/actual_left_door.png" id="5_5asa8"]
 [ext_resource type="Script" uid="uid://cyt78opurb0y6" path="res://Scripts/Nights/tablet_manager.gd" id="5_h71ec"]
 [ext_resource type="Script" uid="uid://n6xetcvp8tiv" path="res://Scripts/Nights/Office/button_scroll.gd" id="5_hvcnl"]
 [ext_resource type="Texture2D" uid="uid://bwp12gkddlnns" path="res://Graphics/Tablet/tablet_anim.png" id="6_1oog2"]
-[ext_resource type="Texture2D" uid="uid://bmlpenbf6l1x4" path="res://Graphics/Office/buttons/on (1).png" id="6_risgj"]
 [ext_resource type="Texture2D" uid="uid://beakfkdy762sj" path="res://Graphics/Office/anomalies/tkj_on_door_updated.png" id="6_v5qfs"]
 [ext_resource type="Texture2D" uid="uid://c55qsq5xr1h1d" path="res://Graphics/Office/doors/actual_right_door.png" id="6_vbnlb"]
 [ext_resource type="Texture2D" uid="uid://dhhppwsr2bab" path="res://Graphics/Office/both_doors (1).png" id="7_5asa8"]
@@ -17,8 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://d5x3qvo8xyjs" path="res://Graphics/Office/buttons/light_off.png" id="7_xftyl"]
 [ext_resource type="Texture2D" uid="uid://5jeq1vesidyn" path="res://Graphics/Office/anomalies/inst_on_door.png" id="8_e2gb6"]
 [ext_resource type="Texture2D" uid="uid://670ng4itadoi" path="res://Graphics/HUD/New Piskel-1.png.png" id="8_hvcnl"]
-[ext_resource type="Texture2D" uid="uid://cna0lb1bmjwf6" path="res://Graphics/Office/buttons/on (2).png" id="8_risgj"]
 [ext_resource type="Script" uid="uid://yp63h48lcuew" path="res://Scripts/Nights/Camera/Setups/tjp_setup.gd" id="11_2lb4s"]
+[ext_resource type="Texture2D" uid="uid://hcdtab6ng7cn" path="res://Graphics/Office/buttons/door_off.png" id="11_judg0"]
 [ext_resource type="Texture2D" uid="uid://uwd10sduycuh" path="res://Graphics/CamRooms/Cam_1/New Piskel (15).png" id="14_risgj"]
 [ext_resource type="Texture2D" uid="uid://8qq5rkryuskp" path="res://Graphics/HUD/cam_buttons.png" id="14_va0vt"]
 [ext_resource type="Shader" uid="uid://bmhw6f2jcbxgp" path="res://Shaders/crtwave_shader.gdshader" id="15_051wc"]
@@ -60,30 +58,38 @@
 [ext_resource type="Resource" uid="uid://e7sxiynfag60" path="res://Scripts/Nights/robot_jumpscare_config.tres" id="43_del28"]
 [ext_resource type="Resource" uid="uid://di338d6fnsvry" path="res://Scripts/Nights/tkr_jumpscare_config.tres" id="44_pl3ap"]
 [ext_resource type="Resource" uid="uid://b0kkctuye7fl0" path="res://Scripts/Nights/tkj_jumpscare_config.tres" id="48_e4mjh"]
+[ext_resource type="AudioStream" uid="uid://dt56dckedsr47" path="res://SFX/Calls/night_1/Telepon_lv_0_20251129164047_2025_11_29_16_43_03_165013020.mp3" id="49_iu180"]
+[ext_resource type="AudioStream" uid="uid://c0kohnu8p5jm3" path="res://SFX/Calls/fnaf-2-phone-call-sound.mp3" id="49_judg0"]
 [ext_resource type="Script" uid="uid://cpiv0ys8l4rrb" path="res://Scripts/Nights/audio_manager.gd" id="49_qygx1"]
 [ext_resource type="AudioStream" uid="uid://c5w7ukgyrsg5x" path="res://SFX/Office/door-slamming-fnaf-1-sound-effects.mp3" id="50_giv46"]
+[ext_resource type="AudioStream" uid="uid://dtyiy0q3mtbck" path="res://SFX/Calls/night_2/N2_165735288.mp3" id="50_pd3xf"]
 [ext_resource type="AudioStream" uid="uid://bx3osdf0bkmr6" path="res://SFX/Ambience/fnaf-ambience-extended_trim.mp3" id="50_pdmxf"]
+[ext_resource type="AudioStream" uid="uid://csmpdiuv3bq4q" path="res://SFX/Calls/phone-guy-hang-up.mp3" id="50_wywhs"]
 [ext_resource type="AudioStream" uid="uid://dgoixh4lbf0lt" path="res://SFX/Office/fnaf-light-sound.mp3" id="51_1gv32"]
+[ext_resource type="AudioStream" uid="uid://r2jrriellmbe" path="res://SFX/Calls/night_3/N3_171252698.mp3" id="51_3hxc8"]
 [ext_resource type="AudioStream" uid="uid://durkbok3wjk2b" path="res://SFX/Ambience/fnaf3-ambience.mp3" id="51_sysrt"]
+[ext_resource type="AudioStream" uid="uid://dnv10ssckw5x3" path="res://SFX/Calls/night_4/Telepon_lv_0_20251129172221_2025_11_29_17_24_49_172545773.mp3" id="52_3dlrw"]
 [ext_resource type="AudioStream" uid="uid://dumsdljolly8f" path="res://SFX/Camera/fnaf-open-camera-sound.mp3" id="52_lfuya"]
 [ext_resource type="Script" uid="uid://dwj3hqognxces" path="res://Scripts/Nights/power_out_sequence.gd" id="53_8y2y3"]
+[ext_resource type="AudioStream" uid="uid://c53xn4e63b6c2" path="res://SFX/Calls/night_5/N5_174003156.mp3" id="53_jf4mx"]
 [ext_resource type="AudioStream" uid="uid://c0ymea87hyhj2" path="res://SFX/Ambience/creepy-and-unsettling-soundd.mp3" id="53_judg0"]
 [ext_resource type="AudioStream" uid="uid://bfgvk3ib64g2w" path="res://SFX/Camera/fnaf2-camera.mp3" id="53_oy24g"]
+[ext_resource type="AudioStream" uid="uid://c05wi0e8d0gbr" path="res://SFX/Calls/night_6/Telepon_lv_0_20251129182119_2025_11_29_18_25_41_182902148.mp3" id="54_0638y"]
 [ext_resource type="AudioStream" uid="uid://id1f8kgnaqw7" path="res://SFX/Camera/FNAF_ Monitor Pulled Up - Gaming Sound Effect (HD).mp3" id="54_lk37x"]
 [ext_resource type="AudioStream" uid="uid://dqb007qvu0060" path="res://SFX/Office/votv-power-outage_Gn5Y3eA.mp3" id="54_oy24g"]
-[ext_resource type="Script" uid="uid://5d1dhgkd3ium" path="res://tmp_rovodev_test_jumpscare.gd" id="54_uho0t"]
 [ext_resource type="AudioStream" uid="uid://cxgosqmcl0bd5" path="res://SFX/Ambience/backrooms-ambience.mp3" id="54_wywhs"]
-[ext_resource type="AudioStream" uid="uid://ducq0k35h4j7n" path="res://SFX/Jumpscares/fnaf-1-music-box.mp3" id="55_6ixi8"]
 [ext_resource type="FontFile" uid="uid://bfrhphr3nf0vm" path="res://Graphics/Fonts/DeterminationMonoWebRegular-Z5oq.ttf" id="55_x7bti"]
-[ext_resource type="Script" uid="uid://dmm0sljt16bu2" path="res://tmp_rovodev_test_powerout.gd" id="59_jdwom"]
+[ext_resource type="AudioStream" uid="uid://bckk0ifd8tei4" path="res://SFX/Jumpscares/js.mp3" id="62_difc2"]
 [ext_resource type="AudioStream" uid="uid://d3s6ojjamffuh" path="res://SFX/Passives/seek-running-sfx-but-a-little-longer.mp3" id="63_h3506"]
 [ext_resource type="AudioStream" uid="uid://dgad1f8ffihhc" path="res://SFX/Passives/flightreacts-banging-door-sound-effect.mp3" id="64_rwly4"]
 [ext_resource type="AudioStream" uid="uid://d0axnku5ws671" path="res://SFX/Passives/manglestatic3_converted.mp3" id="65_ive0k"]
 [ext_resource type="AudioStream" uid="uid://70nrxyryv7fm" path="res://SFX/Passives/153b-robot-step-sounds-short.mp3" id="66_ejhkm"]
 [ext_resource type="AudioStream" uid="uid://mtjkddo2d8pw" path="res://SFX/Passives/atst-walking.mp3" id="67_5aa6o"]
 [ext_resource type="AudioStream" uid="uid://cctqhvy8up1vf" path="res://SFX/Passives/chara-creepy-sound.mp3" id="67_xrl27"]
+[ext_resource type="Texture2D" uid="uid://12l70ccs12om" path="res://Graphics/Jumpscares/jumpscare.png" id="78_difc2"]
 [ext_resource type="AudioStream" uid="uid://ph1wgoknrwm1" path="res://SFX/Victory/tm12.mp3" id="78_pc2cl"]
 [ext_resource type="AudioStream" uid="uid://dr6upf7it7jed" path="res://SFX/Victory/fnaf-cheer-lolz.mp3" id="79_difc2"]
+[ext_resource type="PackedScene" uid="uid://e70mcdas83jq" path="res://Scenes/Nights/phone_call_ui.tscn" id="80_phone"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0qos"]
 size = Vector2(256, 256)
@@ -495,13 +501,9 @@ _data = {
 &"static_idle": SubResource("Animation_06ke1")
 }
 
-[sub_resource type="Gradient" id="Gradient_sysrt"]
-colors = PackedColorArray(1, 1, 0, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lk37x"]
-gradient = SubResource("Gradient_sysrt")
-fill_from = Vector2(1, 0)
-fill_to = Vector2(0, 0)
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu180"]
+atlas = ExtResource("78_difc2")
+region = Rect2(666, 0, 676, 1080)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kco4d"]
 shader = ExtResource("20_obh0f")
@@ -556,61 +558,9 @@ offset = Vector2(-480, 0)
 
 [node name="Buttons" type="Node2D" parent="OfficeElements/Office"]
 
-[node name="ButtonExample" type="Sprite2D" parent="OfficeElements/Office/Buttons"]
-visible = false
-position = Vector2(250, 540)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_lu3yo")
-script = ExtResource("5_hvcnl")
-x_speed = 210
-left_clamp = -400
-
-[node name="Area2D" type="Area2D" parent="OfficeElements/Office/Buttons/ButtonExample"]
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OfficeElements/Office/Buttons/ButtonExample/Area2D"]
-z_index = 50
-shape = SubResource("RectangleShape2D_a0qos")
-
-[node name="ButtonExample2" type="Sprite2D" parent="OfficeElements/Office/Buttons"]
-visible = false
-position = Vector2(800, 540)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_lu3yo")
-script = ExtResource("5_hvcnl")
-x_speed = -350
-left_clamp = -800
-
-[node name="Area2D" type="Area2D" parent="OfficeElements/Office/Buttons/ButtonExample2"]
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OfficeElements/Office/Buttons/ButtonExample2/Area2D"]
-z_index = 50
-shape = SubResource("RectangleShape2D_a0qos")
-
-[node name="ButtonExample3" type="Sprite2D" parent="OfficeElements/Office/Buttons"]
-visible = false
-position = Vector2(1675, 540)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_lu3yo")
-script = ExtResource("5_hvcnl")
-x_speed = -210
-right_clamp = 400
-
-[node name="Area2D" type="Area2D" parent="OfficeElements/Office/Buttons/ButtonExample3"]
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OfficeElements/Office/Buttons/ButtonExample3/Area2D"]
-z_index = 50
-shape = SubResource("RectangleShape2D_a0qos")
-
 [node name="LeftDoorButton" type="Sprite2D" parent="OfficeElements/Office/Buttons"]
-position = Vector2(-100, 550)
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("6_risgj")
+position = Vector2(-250, 600)
+texture = ExtResource("11_judg0")
 script = ExtResource("5_hvcnl")
 x_speed = 210
 left_clamp = -400
@@ -622,11 +572,11 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OfficeElements/Office/Buttons/LeftDoorButton/Area2D"]
 z_index = 50
 position = Vector2(1.6000001, 3.5999994)
-scale = Vector2(0.15, 0.45)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_a0qos")
 
 [node name="LeftLightButton" type="Sprite2D" parent="OfficeElements/Office/Buttons"]
-position = Vector2(-250, 575)
+position = Vector2(-250, 750)
 texture = ExtResource("7_xftyl")
 script = ExtResource("5_hvcnl")
 x_speed = 210
@@ -642,7 +592,7 @@ scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_a0qos")
 
 [node name="RightLightButton" type="Sprite2D" parent="OfficeElements/Office/Buttons"]
-position = Vector2(2175, 575)
+position = Vector2(2175, 750)
 texture = ExtResource("7_xftyl")
 script = ExtResource("5_hvcnl")
 x_speed = -210
@@ -658,9 +608,8 @@ scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_a0qos")
 
 [node name="RightDoorButton" type="Sprite2D" parent="OfficeElements/Office/Buttons"]
-position = Vector2(2018, 550)
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("8_risgj")
+position = Vector2(2175, 600)
+texture = ExtResource("11_judg0")
 script = ExtResource("5_hvcnl")
 x_speed = -210
 right_clamp = 400
@@ -671,7 +620,7 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OfficeElements/Office/Buttons/RightDoorButton/Area2D"]
 z_index = 50
-scale = Vector2(0.15, 0.45)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_a0qos")
 
 [node name="DoorAndLight" type="Node2D" parent="OfficeElements/Office" node_paths=PackedStringArray("power_manager", "hud", "ai_manager", "door_graphics", "door_indicator_graphics")]
@@ -1087,6 +1036,16 @@ jumpscare_configs = Array[ExtResource("41_fyeqi")]([ExtResource("42_fyeqi"), Ext
 
 [node name="AudioManager" type="Node" parent="."]
 script = ExtResource("49_qygx1")
+phone_call_night_1 = ExtResource("49_iu180")
+phone_call_night_2 = ExtResource("50_pd3xf")
+phone_call_night_3 = ExtResource("51_3hxc8")
+phone_call_night_4 = ExtResource("52_3dlrw")
+phone_call_night_5 = ExtResource("53_jf4mx")
+phone_call_night_6 = ExtResource("54_0638y")
+phone_ring_sound = ExtResource("49_judg0")
+phone_pickup_sound = ExtResource("50_wywhs")
+phone_hangup_sound = ExtResource("50_wywhs")
+phone_call_delay = 0.0
 ambient_sounds = Array[AudioStream]([ExtResource("50_pdmxf"), ExtResource("51_sysrt"), ExtResource("50_pdmxf"), ExtResource("53_judg0"), ExtResource("54_wywhs")])
 sound_door_toggle = ExtResource("50_giv46")
 sound_light_toggle = ExtResource("51_1gv32")
@@ -1095,18 +1054,10 @@ sound_camera_close = ExtResource("52_lfuya")
 sound_camera_switch = ExtResource("53_oy24g")
 sound_button_click = ExtResource("53_oy24g")
 sound_power_out = ExtResource("54_oy24g")
-sound_freddy_music_box = ExtResource("55_6ixi8")
 power_out_volume = 5.0
 
 [node name="CharacterAI" type="Node" parent="."]
 script = ExtResource("19_nqdqv")
-use_manual_levels = true
-inst_level = 10
-tkj_roamer_level = 10
-tkr_sprinter_level = 10
-big_robot_level = 10
-rpl_disruptor_level = 10
-tkj_drainer_level = 10
 
 [node name="INSTAnomaly" type="Node" parent="CharacterAI" node_paths=PackedStringArray("camera", "office_manager", "jumpscare_manager")]
 script = ExtResource("26_1ojnv")
@@ -1179,9 +1130,11 @@ power_out_sequence = NodePath("../PowerOutSequence")
 
 [node name="PowerOutSequence" type="Node" parent="."]
 script = ExtResource("53_8y2y3")
-eye_texture = SubResource("GradientTexture2D_lk37x")
-eye_position = Vector2(150, 350)
-eye_scale = 2.0
+wait_before_music = 10.0
+music_clip = ExtResource("62_difc2")
+eye_texture = SubResource("AtlasTexture_iu180")
+eye_position = Vector2(75, 400)
+eye_scale = 0.5
 office_manager_path = NodePath("../OfficeElements")
 tablet_manager_path = NodePath("../TabletElements")
 ai_manager_path = NodePath("../CharacterAI")
@@ -1262,18 +1215,14 @@ mouse_filter = 2
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
+[node name="PhoneCallUI" parent="." instance=ExtResource("80_phone")]
+anchors_preset = -1
+offset_left = 2000.0
+
 [node name="Node" type="Node" parent="."]
-script = ExtResource("54_uho0t")
-jumpscare_manager_path = NodePath("../JumpscareManager")
 
 [node name="Node2" type="Node" parent="."]
-script = ExtResource("59_jdwom")
-power_manager_path = NodePath("../PowerManager")
-power_out_sequence_path = NodePath("../PowerOutSequence")
 
-[connection signal="input_event" from="OfficeElements/Office/Buttons/ButtonExample/Area2D" to="OfficeElements" method="_on_area_2d_input_event"]
-[connection signal="input_event" from="OfficeElements/Office/Buttons/ButtonExample2/Area2D" to="OfficeElements" method="_on_area_2d_input_event"]
-[connection signal="input_event" from="OfficeElements/Office/Buttons/ButtonExample3/Area2D" to="OfficeElements" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="OfficeElements/Office/Buttons/LeftDoorButton/Area2D" to="OfficeElements/Office/DoorAndLight" method="_on_left_door_button_input"]
 [connection signal="input_event" from="OfficeElements/Office/Buttons/LeftLightButton/Area2D" to="OfficeElements/Office/DoorAndLight" method="_on_left_light_button_input"]
 [connection signal="input_event" from="OfficeElements/Office/Buttons/RightLightButton/Area2D" to="OfficeElements/Office/DoorAndLight" method="_on_right_light_button_input"]

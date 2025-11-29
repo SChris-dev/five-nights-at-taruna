@@ -1,0 +1,255 @@
+[gd_scene load_steps=3 format=3 uid="uid://custom_night_scene"]
+
+[ext_resource type="Script" path="res://Scripts/Menu/custom_night.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://bfrhphr3nf0vm" path="res://Graphics/Fonts/DeterminationMonoWebRegular-Z5oq.ttf" id="2_font"]
+
+[node name="CustomNight" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 30.0
+offset_right = 200.0
+offset_bottom = 90.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 48
+text = "CUSTOM NIGHT"
+horizontal_alignment = 1
+
+[node name="AnimatronicsPanel" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -250.0
+offset_right = 400.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="INSTRow" type="HBoxContainer" parent="AnimatronicsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="AnimatronicsPanel/INSTRow"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+text = "INST Anomaly"
+
+[node name="Slider" type="HSlider" parent="AnimatronicsPanel/INSTRow"]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 20.0
+step = 1.0
+
+[node name="Value" type="Label" parent="AnimatronicsPanel/INSTRow"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+
+[node name="TKJRoamerRow" type="HBoxContainer" parent="AnimatronicsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="AnimatronicsPanel/TKJRoamerRow"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+text = "TKJ Roamer"
+
+[node name="Slider" type="HSlider" parent="AnimatronicsPanel/TKJRoamerRow"]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 20.0
+step = 1.0
+
+[node name="Value" type="Label" parent="AnimatronicsPanel/TKJRoamerRow"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+
+[node name="TKRSprinterRow" type="HBoxContainer" parent="AnimatronicsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="AnimatronicsPanel/TKRSprinterRow"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+text = "TKR Sprinter"
+
+[node name="Slider" type="HSlider" parent="AnimatronicsPanel/TKRSprinterRow"]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 20.0
+step = 1.0
+
+[node name="Value" type="Label" parent="AnimatronicsPanel/TKRSprinterRow"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+
+[node name="BigRobotRow" type="HBoxContainer" parent="AnimatronicsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="AnimatronicsPanel/BigRobotRow"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+text = "Big Robot"
+
+[node name="Slider" type="HSlider" parent="AnimatronicsPanel/BigRobotRow"]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 20.0
+step = 1.0
+
+[node name="Value" type="Label" parent="AnimatronicsPanel/BigRobotRow"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+
+[node name="RPLDisruptorRow" type="HBoxContainer" parent="AnimatronicsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="AnimatronicsPanel/RPLDisruptorRow"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+text = "RPL Disruptor"
+
+[node name="Slider" type="HSlider" parent="AnimatronicsPanel/RPLDisruptorRow"]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 20.0
+step = 1.0
+
+[node name="Value" type="Label" parent="AnimatronicsPanel/RPLDisruptorRow"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+
+[node name="TKJDrainerRow" type="HBoxContainer" parent="AnimatronicsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="AnimatronicsPanel/TKJDrainerRow"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+text = "TKJ Drainer"
+
+[node name="Slider" type="HSlider" parent="AnimatronicsPanel/TKJDrainerRow"]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 20.0
+step = 1.0
+
+[node name="Value" type="Label" parent="AnimatronicsPanel/TKJDrainerRow"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+
+[node name="ButtonsPanel" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="BackButton" type="Button" parent="ButtonsPanel"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 28
+text = "BACK"
+
+[node name="ResetButton" type="Button" parent="ButtonsPanel"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 28
+text = "RESET"
+
+[node name="StartButton" type="Button" parent="ButtonsPanel"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 28
+text = "START"
+
+[connection signal="value_changed" from="AnimatronicsPanel/INSTRow/Slider" to="." method="_on_slider_changed"]
+[connection signal="value_changed" from="AnimatronicsPanel/TKJRoamerRow/Slider" to="." method="_on_slider_changed"]
+[connection signal="value_changed" from="AnimatronicsPanel/TKRSprinterRow/Slider" to="." method="_on_slider_changed"]
+[connection signal="value_changed" from="AnimatronicsPanel/BigRobotRow/Slider" to="." method="_on_slider_changed"]
+[connection signal="value_changed" from="AnimatronicsPanel/RPLDisruptorRow/Slider" to="." method="_on_slider_changed"]
+[connection signal="value_changed" from="AnimatronicsPanel/TKJDrainerRow/Slider" to="." method="_on_slider_changed"]
+[connection signal="pressed" from="ButtonsPanel/BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="ButtonsPanel/ResetButton" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="ButtonsPanel/StartButton" to="." method="_on_start_pressed"]

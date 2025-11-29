@@ -79,13 +79,13 @@ func _on_fade_in_complete() -> void:
 func _get_paycheck_amount() -> String:
 	# FNAF 1 style paycheck amounts
 	if GlobalData.is_custom_night:
-		return "$0.00"  # No pay for custom night
+		return "Tidak Dibayar!"  # No pay for custom night
 	
 	match GlobalData.current_night:
-		1, 2, 3, 4: return "$120.00"
-		5: return "$120.50"
-		6: return "$0.50"  # Overtime
-		_: return "$120.00"
+		1, 2, 3, 4: return "Rp. 1.000.000"
+		5: return "Rp. 1.000.000"
+		6: return "Tidak dibayar..."  # Overtime
+		_: return "null"
 
 func _process(delta: float) -> void:
 	timer += delta
@@ -102,6 +102,20 @@ func _process(delta: float) -> void:
 		_return_to_menu()
 
 func _return_to_menu() -> void:
+	# Check if continuous nights is enabled
+	if GlobalData.continuous_nights and not GlobalData.is_custom_night:
+		# Check if there's a next night to play
+		var next_night = GlobalData.current_night + 1
+		if next_night <= 6:  # Only continue if there are more nights (1-6)
+			print("[NightComplete] Continuous Nights enabled - Going to Night ", next_night, " intro")
+			GlobalData.current_night = next_night
+			# Go to night intro scene (shows "Night X" screen)
+			get_tree().change_scene_to_file("res://Scenes/Menu/night_intro.tscn")
+			return
+		else:
+			print("[NightComplete] All nights completed - Returning to menu")
+	
+	# Default behavior: return to main menu
 	get_tree().change_scene_to_file("res://Scenes/Menu/main_menu.tscn")
 
 func _input(event: InputEvent) -> void:

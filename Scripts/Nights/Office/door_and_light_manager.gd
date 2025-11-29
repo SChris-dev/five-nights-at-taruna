@@ -32,13 +32,17 @@ var controls_disabled: bool = false
 @onready var inst_indicator: ColorRect = $LeftDoorIndicators/INSTIndicator if has_node("LeftDoorIndicators/INSTIndicator") else null
 @onready var tkj_indicator: ColorRect = $RightDoorIndicators/TKJIndicator if has_node("RightDoorIndicators/TKJIndicator") else null
 
-# Light button sprites
+# Button sprites
 @onready var left_light_button: Sprite2D = $"../Buttons/LeftLightButton"
 @onready var right_light_button: Sprite2D = $"../Buttons/RightLightButton"
+@onready var left_door_button: Sprite2D = $"../Buttons/LeftDoorButton"
+@onready var right_door_button: Sprite2D = $"../Buttons/RightDoorButton"
 
-# Light textures
+# Button textures
 var light_on_texture: Texture2D = preload("res://Graphics/Office/buttons/light_on.png")
 var light_off_texture: Texture2D = preload("res://Graphics/Office/buttons/light_off.png")
+var door_on_texture: Texture2D = preload("res://Graphics/Office/buttons/door_on.png")
+var door_off_texture: Texture2D = preload("res://Graphics/Office/buttons/door_off.png")
 
 func _toggle_left_door() -> void:
 	if controls_disabled:
@@ -50,6 +54,7 @@ func _toggle_left_door() -> void:
 	_update_hud()
 	_update_door_indicators()
 	_update_door_graphics()
+	_update_door_button_sprites()
 	audio_manager.play_door_sound()
 
 func _toggle_right_door() -> void:
@@ -62,6 +67,7 @@ func _toggle_right_door() -> void:
 	_update_hud()
 	_update_door_indicators()
 	_update_door_graphics()
+	_update_door_button_sprites()
 	audio_manager.play_door_sound()
 
 func _toggle_left_light() -> void:
@@ -229,6 +235,7 @@ func set_left_door(closed: bool) -> void:
 		_update_hud()
 		_update_door_indicators()
 		_update_door_graphics()
+		_update_door_button_sprites()
 
 func set_right_door(closed: bool) -> void:
 	if right_door_closed != closed:
@@ -238,6 +245,7 @@ func set_right_door(closed: bool) -> void:
 		_update_hud()
 		_update_door_indicators()
 		_update_door_graphics()
+		_update_door_button_sprites()
 
 func set_left_light(on: bool) -> void:
 	if left_light_on != on:
@@ -345,6 +353,14 @@ func _update_light_button_sprites() -> void:
 	
 	if right_light_button:
 		right_light_button.texture = light_on_texture if right_light_on else light_off_texture
+
+func _update_door_button_sprites() -> void:
+	# Update door button sprites based on door state
+	if left_door_button:
+		left_door_button.texture = door_on_texture if left_door_closed else door_off_texture
+	
+	if right_door_button:
+		right_door_button.texture = door_on_texture if right_door_closed else door_off_texture
 
 func _update_door_graphics() -> void:
 	# Update door sprite visibility based on door states

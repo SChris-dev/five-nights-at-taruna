@@ -1,0 +1,374 @@
+[gd_scene load_steps=15 format=3 uid="uid://cgupt6ccxqatr"]
+
+[ext_resource type="Script" uid="uid://bptv8snghkwqj" path="res://Scripts/Menu/custom_night.gd" id="1_custom"]
+[ext_resource type="Texture2D" uid="uid://dlofp1ar3gc16" path="res://Graphics/Menu/main_menu/menu_bg_overlay.png" id="2_bg"]
+[ext_resource type="FontFile" uid="uid://bfrhphr3nf0vm" path="res://Graphics/Fonts/DeterminationMonoWebRegular-Z5oq.ttf" id="3_font"]
+[ext_resource type="Texture2D" uid="uid://dbvg26o0re6y0" path="res://Graphics/Menu/night_select/NIGHT_1.png" id="4_u1x3k"]
+[ext_resource type="Texture2D" uid="uid://dvvbv1vsitg4w" path="res://Graphics/Menu/night_select/NIGHT_2.png" id="5_nja68"]
+[ext_resource type="Texture2D" uid="uid://uq7h2w6qjpm1" path="res://Graphics/Menu/night_select/NIGHT_3.png" id="6_8ybkw"]
+[ext_resource type="Texture2D" uid="uid://b6txpqgncl101" path="res://Graphics/Menu/night_select/NIGHT_5.png" id="7_y0tgn"]
+[ext_resource type="Texture2D" uid="uid://clch7610llf4i" path="res://Graphics/Menu/night_select/NIGHT_4.png" id="8_y0tgn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsuwv"]
+atlas = ExtResource("4_u1x3k")
+region = Rect2(0, 0, 1920, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8wl4"]
+atlas = ExtResource("5_nja68")
+region = Rect2(0, 0, 1920, 735)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu7um"]
+atlas = ExtResource("6_8ybkw")
+region = Rect2(964, 0, 956, 1008)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4237"]
+atlas = ExtResource("7_y0tgn")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nat73"]
+atlas = ExtResource("6_8ybkw")
+region = Rect2(0, 0, 954, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dnfy"]
+atlas = ExtResource("8_y0tgn")
+region = Rect2(0, 0, 1130, 896)
+
+[node name="CustomNight" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_custom")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="BackgroundOverlay" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bg")
+stretch_mode = 6
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 30.0
+offset_right = 200.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 48
+text = "CUSTOM NIGHT"
+horizontal_alignment = 1
+
+[node name="CharacterGrid" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -280.0
+offset_right = 640.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 3
+
+[node name="INSTCard" type="PanelContainer" parent="CharacterGrid"]
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterGrid/INSTCard"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="CharacterGrid/INSTCard/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+texture = SubResource("AtlasTexture_nsuwv")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="NameLabel" type="Label" parent="CharacterGrid/INSTCard/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
+text = "(INST) Traffic Light Bot"
+horizontal_alignment = 1
+
+[node name="SliderContainer" type="HBoxContainer" parent="CharacterGrid/INSTCard/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Slider" type="HSlider" parent="CharacterGrid/INSTCard/VBoxContainer/SliderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 20.0
+
+[node name="Value" type="Label" parent="CharacterGrid/INSTCard/VBoxContainer/SliderContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+
+[node name="TKJRoamerCard" type="PanelContainer" parent="CharacterGrid"]
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterGrid/TKJRoamerCard"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="CharacterGrid/TKJRoamerCard/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+texture = SubResource("AtlasTexture_u8wl4")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="NameLabel" type="Label" parent="CharacterGrid/TKJRoamerCard/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
+text = "(TKJ) Patrol Bot"
+horizontal_alignment = 1
+
+[node name="SliderContainer" type="HBoxContainer" parent="CharacterGrid/TKJRoamerCard/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Slider" type="HSlider" parent="CharacterGrid/TKJRoamerCard/VBoxContainer/SliderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 20.0
+
+[node name="Value" type="Label" parent="CharacterGrid/TKJRoamerCard/VBoxContainer/SliderContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+
+[node name="TKRSprinterCard" type="PanelContainer" parent="CharacterGrid"]
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterGrid/TKRSprinterCard"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="CharacterGrid/TKRSprinterCard/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+texture = SubResource("AtlasTexture_yu7um")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="NameLabel" type="Label" parent="CharacterGrid/TKRSprinterCard/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
+text = "(TKR) Samurai Fighter Bot"
+horizontal_alignment = 1
+
+[node name="SliderContainer" type="HBoxContainer" parent="CharacterGrid/TKRSprinterCard/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Slider" type="HSlider" parent="CharacterGrid/TKRSprinterCard/VBoxContainer/SliderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 20.0
+
+[node name="Value" type="Label" parent="CharacterGrid/TKRSprinterCard/VBoxContainer/SliderContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+
+[node name="BigRobotCard" type="PanelContainer" parent="CharacterGrid"]
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterGrid/BigRobotCard"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="CharacterGrid/BigRobotCard/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+texture = SubResource("AtlasTexture_i4237")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="NameLabel" type="Label" parent="CharacterGrid/BigRobotCard/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
+text = "(TPM/LAS) Junk Bot"
+horizontal_alignment = 1
+
+[node name="SliderContainer" type="HBoxContainer" parent="CharacterGrid/BigRobotCard/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Slider" type="HSlider" parent="CharacterGrid/BigRobotCard/VBoxContainer/SliderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 20.0
+
+[node name="Value" type="Label" parent="CharacterGrid/BigRobotCard/VBoxContainer/SliderContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+
+[node name="RPLDisruptorCard" type="PanelContainer" parent="CharacterGrid"]
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterGrid/RPLDisruptorCard"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="CharacterGrid/RPLDisruptorCard/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+texture = SubResource("AtlasTexture_nat73")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="NameLabel" type="Label" parent="CharacterGrid/RPLDisruptorCard/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
+text = "(RPL) P.I.P.P.Y"
+horizontal_alignment = 1
+
+[node name="SliderContainer" type="HBoxContainer" parent="CharacterGrid/RPLDisruptorCard/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Slider" type="HSlider" parent="CharacterGrid/RPLDisruptorCard/VBoxContainer/SliderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 20.0
+
+[node name="Value" type="Label" parent="CharacterGrid/RPLDisruptorCard/VBoxContainer/SliderContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+
+[node name="TKJDrainerCard" type="PanelContainer" parent="CharacterGrid"]
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterGrid/TKJDrainerCard"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="CharacterGrid/TKJDrainerCard/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+texture = SubResource("AtlasTexture_5dnfy")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="NameLabel" type="Label" parent="CharacterGrid/TKJDrainerCard/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
+text = "(TKJ) Power Bot"
+horizontal_alignment = 1
+
+[node name="SliderContainer" type="HBoxContainer" parent="CharacterGrid/TKJDrainerCard/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Slider" type="HSlider" parent="CharacterGrid/TKJDrainerCard/VBoxContainer/SliderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 20.0
+
+[node name="Value" type="Label" parent="CharacterGrid/TKJDrainerCard/VBoxContainer/SliderContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+
+[node name="ButtonContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -80.0
+offset_right = 300.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="BackButton" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
+text = "Back"
+
+[node name="ResetButton" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
+text = "Reset"
+
+[node name="StartButton" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
+text = "Start"
+
+[connection signal="value_changed" from="CharacterGrid/INSTCard/VBoxContainer/SliderContainer/Slider" to="." method="_on_slider_changed"]
+[connection signal="value_changed" from="CharacterGrid/TKJRoamerCard/VBoxContainer/SliderContainer/Slider" to="." method="_on_slider_changed"]
+[connection signal="value_changed" from="CharacterGrid/TKRSprinterCard/VBoxContainer/SliderContainer/Slider" to="." method="_on_slider_changed"]
+[connection signal="value_changed" from="CharacterGrid/BigRobotCard/VBoxContainer/SliderContainer/Slider" to="." method="_on_slider_changed"]
+[connection signal="value_changed" from="CharacterGrid/RPLDisruptorCard/VBoxContainer/SliderContainer/Slider" to="." method="_on_slider_changed"]
+[connection signal="value_changed" from="CharacterGrid/TKJDrainerCard/VBoxContainer/SliderContainer/Slider" to="." method="_on_slider_changed"]
+[connection signal="pressed" from="ButtonContainer/BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="ButtonContainer/ResetButton" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="ButtonContainer/StartButton" to="." method="_on_start_pressed"]

@@ -1,67 +1,183 @@
-[gd_scene load_steps=2 format=3 uid="uid://eptku71b53ae"]
+[gd_scene load_steps=6 format=3 uid="uid://eptku71b53ae"]
 
-[ext_resource type="Script" uid="uid://b5cw3miksq714" path="res://Scripts/Menu/night_select.gd" id="1_av3hj"]
+[ext_resource type="Script" uid="uid://cpwl7cn2pbbk5" path="res://Scripts/Menu/night_select_carousel.gd" id="1_carousel"]
+[ext_resource type="Texture2D" uid="uid://bly3gepnubk26" path="res://Graphics/Menu/New game.png" id="2_rmjxv"]
+[ext_resource type="FontFile" uid="uid://bfrhphr3nf0vm" path="res://Graphics/Fonts/DeterminationMonoWebRegular-Z5oq.ttf" id="3_font"]
 
-[node name="Control" type="Control"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnxd1"]
+atlas = ExtResource("2_rmjxv")
+region = Rect2(280, 387, 716, 246)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.15, 0.15, 0.15, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5, 0.5, 0.5, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="NightSelect" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_av3hj")
+script = ExtResource("1_carousel")
 
-[node name="NightButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 112.0
-offset_top = 109.0
-offset_right = 174.0
-offset_bottom = 140.0
-text = "night 1"
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="NightButton2" type="Button" parent="."]
+[node name="BackButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 305.0
-offset_top = 109.0
-offset_right = 367.0
-offset_bottom = 140.0
-text = "night 2"
-
-[node name="NightButton3" type="Button" parent="."]
-layout_mode = 0
-offset_left = 485.0
-offset_top = 115.0
-offset_right = 547.0
-offset_bottom = 146.0
-text = "night 3"
-
-[node name="NightButton4" type="Button" parent="."]
-layout_mode = 0
-offset_left = 652.0
-offset_top = 117.0
-offset_right = 714.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 148.0
 offset_bottom = 148.0
-text = "night 4"
+scale = Vector2(0.5, 0.5)
+texture_normal = SubResource("AtlasTexture_vnxd1")
 
-[node name="NightButton5" type="Button" parent="."]
-layout_mode = 0
-offset_left = 813.0
-offset_top = 117.0
-offset_right = 875.0
-offset_bottom = 148.0
-text = "night 5"
+[node name="CarouselContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="NightButton6" type="Button" parent="."]
-layout_mode = 0
-offset_left = 976.0
-offset_top = 113.0
-offset_right = 1038.0
-offset_bottom = 144.0
-text = "night 6"
+[node name="CardShadow" type="Panel" parent="CarouselContainer"]
+modulate = Color(0, 0, 0, 0.5)
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 2
 
-[connection signal="pressed" from="NightButton" to="." method="_on_night_button_pressed" binds= [1]]
-[connection signal="pressed" from="NightButton2" to="." method="_on_night_button_pressed" binds= [2]]
-[connection signal="pressed" from="NightButton3" to="." method="_on_night_button_pressed" binds= [3]]
-[connection signal="pressed" from="NightButton4" to="." method="_on_night_button_pressed" binds= [4]]
-[connection signal="pressed" from="NightButton5" to="." method="_on_night_button_pressed" binds= [5]]
-[connection signal="pressed" from="NightButton6" to="." method="_on_night_button_pressed" binds= [6]]
+[node name="NightCard" type="PanelContainer" parent="CarouselContainer"]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="MarginContainer" type="MarginContainer" parent="CarouselContainer/NightCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CarouselContainer/NightCard/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="NightTitle" type="Label" parent="CarouselContainer/NightCard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 64
+text = "NIGHT 1"
+horizontal_alignment = 1
+
+[node name="NightDescription" type="Label" parent="CarouselContainer/NightCard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
+text = "Your first night on the job.
+The systems are fairly stable."
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="CarouselContainer/NightCard/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.8, 0, 1)
+theme_override_colors/font_hover_color = Color(0.2, 1, 0.2, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 40
+text = "PLAY"
+
+[node name="CardBackground" type="TextureRect" parent="CarouselContainer/NightCard"]
+modulate = Color(1, 1, 1, 0.25)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LeftArrow" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -50.0
+offset_right = 150.0
+offset_bottom = 50.0
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.6, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.8, 0.2, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 64
+text = "◄"
+
+[node name="RightArrow" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -50.0
+offset_right = -50.0
+offset_bottom = 50.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.6, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.8, 0.2, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 64
+text = "►"
+
+[node name="NightIndicator" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -60.0
+offset_right = 50.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
+text = "1 / 6"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="CarouselContainer/NightCard/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="LeftArrow" to="." method="_on_left_arrow_pressed"]
+[connection signal="pressed" from="RightArrow" to="." method="_on_right_arrow_pressed"]

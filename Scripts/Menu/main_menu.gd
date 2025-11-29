@@ -21,6 +21,7 @@ var current_move_direction: int = 1  # 1 for right, -1 for left
 var move_tween: Tween
 
 @onready var audio_manager = $AudioManager
+@onready var menu_music_player: AudioStreamPlayer = $MenuMusicPlayer if has_node("MenuMusicPlayer") else null
 
 # Title animation
 var title_float_tween: Tween
@@ -37,6 +38,9 @@ func _ready() -> void:
 	
 	# Setup button hover effects
 	_setup_button_hover_effects()
+	
+	# Start menu music
+	_start_menu_music()
 
 func _setup_background_rotation() -> void:
 	# Create background nodes
@@ -164,7 +168,17 @@ func _update_background() -> void:
 func _update_continue_button() -> void:
 	# Disable continue button if no progress
 	if has_node("ContinueButton"):
-		$ContinueButton.disabled = GlobalData.nights_completed == 0
+		var continue_btn = $ContinueButton
+		continue_btn.disabled = GlobalData.nights_completed == 0
+		# Visual feedback: gray out when disabled
+		continue_btn.modulate = Color(0.5, 0.5, 0.5, 1.0) if continue_btn.disabled else Color(1.0, 1.0, 1.0, 1.0)
+	
+	# Disable custom night button if Night 6 not completed
+	if has_node("CustomNightButton"):
+		var custom_btn = $CustomNightButton
+		custom_btn.disabled = GlobalData.nights_completed < 6
+		# Visual feedback: gray out when disabled
+		custom_btn.modulate = Color(0.5, 0.5, 0.5, 1.0) if custom_btn.disabled else Color(1.0, 1.0, 1.0, 1.0)
 
 func _on_new_game_pressed() -> void:
 	audio_manager.play_button_click_sound()
@@ -213,6 +227,17 @@ func _setup_title_float() -> void:
 
 # ===== BUTTON HOVER EFFECTS =====
 
+func _start_menu_music() -> void:
+	"""Start playing menu music if available"""
+	if menu_music_player:
+		if menu_music_player.stream:
+			menu_music_player.play()
+			print("[MainMenu] Menu music started")
+		else:
+			print("[MainMenu] No menu music assigned - waiting for audio file")
+	else:
+		print("[MainMenu] MenuMusicPlayer node not found")
+
 func _setup_button_hover_effects() -> void:
 	"""Setup hover effects for all buttons"""
 	_connect_button_hover("NewGameButton")
@@ -231,7 +256,11 @@ func _connect_button_hover(button_name: String) -> void:
 
 func _on_button_hover(button: Control, is_hovering: bool) -> void:
 	"""Handle button hover effect (scale and brightness)"""
-	var target_scale = Vector2(1.05, 1.05) if is_hovering else Vector2(1.0, 1.0)
+	# Don't apply hover effects to disabled buttons
+	if button is BaseButton and button.disabled:
+		return
+	
+	var target_scale = Vector2(0.52, 0.52) if is_hovering else Vector2(0.5, 0.5)
 	var target_modulate = Color(1.2, 1.2, 1.2, 1.0) if is_hovering else Color(1.0, 1.0, 1.0, 1.0)
 	
 	# Play hover sound
@@ -249,8 +278,12 @@ func _on_button_hover(button: Control, is_hovering: bool) -> void:
 func _on_settings_pressed() -> void:
 	"""Open settings menu"""
 	audio_manager.play_button_click_sound()
-	# TODO: Open settings popup/scene
-	print("[MainMenu] Settings button pressed - TODO: Implement settings menu")
+	var settings_scene = load("res://Scenes/Menu/settings_menu.tscn")
+	if settings_scene:
+		var settings_instance = settings_scene.instantiate()
+		add_child(settings_instance)
+	else:
+		print("[MainMenu] Failed to load settings menu scene")
 
 func _on_reset_pressed() -> void:
 	"""Reset game progress with confirmation"""
@@ -261,24 +294,27 @@ func _on_reset_pressed() -> void:
 
 func _show_reset_confirmation() -> void:
 	"""Show confirmation dialog for reset"""
-	var dialog = AcceptDialog.new()
+	var dialog = ConfirmationDialog.new()
 	dialog.dialog_text = "Are you sure you want to reset ALL progress?\nThis cannot be undone!"
 	dialog.title = "Reset Progress"
 	dialog.ok_button_text = "Yes, Reset"
 	dialog.cancel_button_text = "Cancel"
 	
-	# Add cancel button
-	dialog.add_cancel_button("Cancel")
-	
 	# Connect signals
-	dialog.confirmed.connect(_reset_game_data)
-	dialog.canceled.connect(func(): dialog.queue_free())
+	dialog.confirmed.connect(_on_reset_confirmed.bind(dialog))
+	dialog.canceled.connect(_on_reset_canceled.bind(dialog))
 	
 	add_child(dialog)
 	dialog.popup_centered()
 
-func _reset_game_data() -> void:
-	"""Actually reset the game data"""
+func _on_reset_confirmed(dialog: ConfirmationDialog) -> void:
+	"""Handle confirmation of reset"""
 	GlobalData.reset_progress()
 	_update_continue_button()
 	print("[MainMenu] Game progress reset!")
+	dialog.queue_free()
+
+func _on_reset_canceled(dialog: ConfirmationDialog) -> void:
+	"""Handle cancellation of reset"""
+	print("[MainMenu] Reset canceled")
+	dialog.queue_free()
